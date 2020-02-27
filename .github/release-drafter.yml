@@ -22,7 +22,6 @@ categories:
       - 'ci'
       - 'style'
       - 'perf'
-
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 template: |
   ## Changes
