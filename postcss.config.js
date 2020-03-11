@@ -1,4 +1,4 @@
-import postCss from '@fullhuman/postcss-purgecss';
+const postCss = require('@fullhuman/postcss-purgecss');
 
 const IN_PRODUCTION = process.env.NODE_ENV === 'production';
 const plugins = {};
