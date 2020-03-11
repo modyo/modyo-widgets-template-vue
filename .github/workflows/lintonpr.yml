@@ -1,0 +1,19 @@
+name: PR Lint on PR
+
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+
+jobs:
+  pr-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        registry-url: 'https://npm.pkg.github.com'
+    - name: Install packages
+      run: yarn install
+    - name: Lint Package
+      run: yarn lint
