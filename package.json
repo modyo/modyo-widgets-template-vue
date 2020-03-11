@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
-    "modyo-push": "vue-cli-service modyo-push",
+    "modyo-push": "modyo-cli push",
     "modyo-serve": "vue-cli-service modyo-serve"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@fullhuman/postcss-purgecss": "^1.3.0",
     "@mathieustan/vue-datepicker": "^0.2.3-rc.1",
+    "@modyo/cli": "^3.0.2",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
