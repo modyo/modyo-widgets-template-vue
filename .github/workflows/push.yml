@@ -1,8 +1,8 @@
 name: Build and Push
 on:
   push:
-    branches:
-      - master 
+    branches-ignore:
+      - '**'
 jobs:
   build:
     runs-on: ubuntu-latest
