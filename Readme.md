@@ -1,3 +1,3 @@
-# Widget Template
+# Widget Vue.js Template
 
 Readme File
