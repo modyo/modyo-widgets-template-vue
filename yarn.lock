@@ -1049,8 +1049,8 @@
 
 "@modyo/cli@^3.1.8":
   version "3.1.8"
-  resolved "https://npm.pkg.github.com/download/@modyo/cli/3.1.8/373814e9dd076f3d366849c80b7f1cf61455a898fc7208d57ee7587cdcb6a6d0#5c7ab1b6a111e4bed439e8489814b473dc44e120"
-  integrity sha512-laQ1tXNqdqq32UCviMb43noYgK3t0PK5L7xTxwpBwC8UclAL+mTxx1kPgySJuJbwflRjniMIl+ZZ5SDiW57x4g==
+  resolved "https://registry.yarnpkg.com/@modyo/cli/-/cli-3.1.8.tgz#a249b5fae34900bcd1affa5584c5d03130d6eb9f"
+  integrity sha512-T+RDkDdDAXEMNiStvPPO1Udqjmo7Fl01EijS6HqtX/xGsb4OuBpP3grO4FrX8K3LLSpLYf/nlW4uBebl6suc7w==
   dependencies:
     "@oclif/command" "^1.5.20"
     "@oclif/config" "^1.15.1"
@@ -1079,8 +1079,8 @@
 
 "@modyo/vue-cli-plugin-connector@~1.4.1":
   version "1.4.1"
-  resolved "https://npm.pkg.github.com/download/@modyo/vue-cli-plugin-connector/1.4.1/26e4f83f88002b0d5619a54c4fcc4441f7a50e19a38180cf37b4e9462ddc7bf3#db727a69ca93af6c6d184c3fb4e4af97d68e0b8a"
-  integrity sha512-IazoAB6CYpNb8GPZUdM4PWvVzPn/d2sdL6nUrWWpzIWpXWjjipsZG4EzPgvjes/6pTgN5u9lzuyA+UjQI6OU/A==
+  resolved "https://registry.yarnpkg.com/@modyo/vue-cli-plugin-connector/-/vue-cli-plugin-connector-1.4.1.tgz#d09448e811a7879a43631bb0a0914a26c3cc82d1"
+  integrity sha512-QO4yC7bJvDTzD+E75bqpLOHYukRea9pk+GqT2EfriXqg6Dz7i6Q9wqzv3rhIGhZ8gDEjW2jetBWoB/IyQc6xZw==
   dependencies:
     "@fullhuman/postcss-purgecss" "2.0.6"
     "@vue/cli-shared-utils" "^4.2.2"
