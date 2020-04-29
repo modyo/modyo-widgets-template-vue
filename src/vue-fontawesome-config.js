@@ -10,13 +10,13 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 
 // Solid icons
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 // Brands icons
 import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faPencilAlt, faCcVisa, faComment);
+library.add(faCcVisa, faComment, faHeart);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);

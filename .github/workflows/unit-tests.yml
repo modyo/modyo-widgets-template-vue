@@ -2,6 +2,9 @@ name: Unit Tests
 
 on:
   pull_request:
+    branches:
+      - master
+      - develop
     types:
       [ opened, edited, reopened, synchronize, ready_for_review, review_requested, review_request_removed
       ]
