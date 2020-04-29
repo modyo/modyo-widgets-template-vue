@@ -1,16 +1,14 @@
-name: Pull Request Lint Javascript
+name: Stylelint
 
 on:
   pull_request:
-    types:
-      [
-        opened,
-        edited,
-        reopened,
-        synchronize
-      ]
+    branches:
+      - master
+      - develop
+    types: [ opened, edited, reopened, synchronize ]
 jobs:
-  pull-request-lint-javascript:
+  run-stylelint:
+    name: Run Stylelint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -32,9 +30,9 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install packages
         if: steps.yarn-cache-set-path.outputs.cache-hit != 'true'
-        run: yarn
+        run: yarn install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Lint Package
-        run: yarn lint
+        run: yarn lint:style

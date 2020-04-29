@@ -1,16 +1,13 @@
-name: Pull Request Lint Style
+name: Unit Tests
 
 on:
   pull_request:
     types:
-      [
-        opened,
-        edited,
-        reopened,
-        synchronize
+      [ opened, edited, reopened, synchronize, ready_for_review, review_requested, review_request_removed
       ]
 jobs:
-  pull-request-lint-style:
+  run-tests:
+    name: Run Unit Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -24,7 +21,7 @@ jobs:
         id: yarn-cache-set-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-set-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -37,4 +34,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Lint Package
-        run: yarn lint:style
+        run: yarn test:unit

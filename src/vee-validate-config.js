@@ -3,6 +3,7 @@
 
 /* Config file for VeeValidate */
 /* Import and extend the rules you need to use. */
+/* DOCUMENTATION: https://logaretm.github.io/vee-validate/guide/basics.html */
 
 import {
   extend,

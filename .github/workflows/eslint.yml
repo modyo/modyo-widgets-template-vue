@@ -1,16 +1,14 @@
-name: Run Unit Tests
+name: ESLint
 
 on:
   pull_request:
-    types:
-      [
-        opened,
-        edited,
-        reopened,
-        synchronize
-      ]
+    branches:
+      - master
+      - develop
+    types: [ opened, edited, reopened, synchronize ]
 jobs:
-  run-unit-tests:
+  run-eslint:
+    name: Run ESLint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -32,9 +30,9 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install packages
         if: steps.yarn-cache-set-path.outputs.cache-hit != 'true'
-        run: yarn install
+        run: yarn
         env:
           NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Run Unit Tests
-        run: yarn test:unit
+      - name: Lint Package
+        run: yarn lint
