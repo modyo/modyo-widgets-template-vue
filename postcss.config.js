@@ -1,9 +1,10 @@
-const postCss = require('@fullhuman/postcss-purgecss');
+const POST_CSS = require('@fullhuman/postcss-purgecss');
 
 const IN_PRODUCTION = process.env.NODE_ENV === 'production';
 const plugins = {};
+
 if (IN_PRODUCTION) {
-  plugins.postCss = postCss({
+  plugins.postcss = POST_CSS({
     content: ['./public/**/*.html', './src/**/*.vue'],
     defaultExtractor(content) {
       const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '');
@@ -14,9 +15,11 @@ if (IN_PRODUCTION) {
       /-(leave|enter|appear)(|-(to|from|active))$/,
       /^(?!(|.*?:)cursor-move).+-move$/,
       /^router-link(|-exact)-active$/,
+      /^vue-slider*/,
     ],
   });
 }
+
 plugins.autoprefixer = {};
 
 module.exports = {
