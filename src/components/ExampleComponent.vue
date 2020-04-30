@@ -6,7 +6,7 @@
         <div class="col-md-8 text-center">
           <div class="row">
             <div class="col-md-4 text-center">
-              <img src="../assets/hless.jpg">
+              <img src="https://cloud.modyocdn.com/uploads/98fcf5ac-0fe4-4de7-9d22-a4b54cdd9f0c/original/hless.jpg">
               <h3 class="h4 mt-3">
                 {{ titleOne }}
               </h3>
@@ -18,7 +18,7 @@
                 href="https://www.modyo.com">Learn more</a>
             </div>
             <div class="col-md-4 text-center">
-              <img src="../assets/code.jpg">
+              <img src="https://cloud.modyocdn.com/uploads/72b243da-62f8-477d-83f8-b7946fc5c439/original/code.jpg">
               <h3 class="h4 mt-3">
                 {{ titleTwo }}
               </h3>
@@ -30,7 +30,7 @@
                 href="https://www.modyo.com">Learn more</a>
             </div>
             <div class="col-md-4 text-center">
-              <img src="../assets/flujo.jpg">
+              <img src="https://cloud.modyocdn.com/uploads/1b8b4919-8b5f-4589-9c66-cd2db87dd7d6/original/flujo.jpg">
               <h3 class="h4 mt-3">
                 {{ titleThree }}
               </h3>

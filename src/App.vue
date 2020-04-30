@@ -23,7 +23,7 @@
         </div>
         <div class="mt-2">
           <img
-            src="./assets/homeMinimal.png"
+            src="https://cloud.modyocdn.com/uploads/2addb891-7316-4cfb-882a-f0fd9745bf3a/original/homeMinimal.png"
             alt="modyo">
         </div>
       </div>
@@ -44,7 +44,7 @@
             <div class="px-5 my-5">
               <img
                 class="w-50"
-                src="./assets/diseno.png"
+                src="https://cloud.modyocdn.com/uploads/8ab8adac-898d-4c38-a878-8788a4b3df0f/original/diseno.png"
                 alt="modyo">
             </div>
             <a
