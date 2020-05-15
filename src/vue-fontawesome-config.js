@@ -3,7 +3,7 @@
 /* DOCUMENTATION: https://github.com/FortAwesome/vue-fontawesome#introduction */
 
 import Vue from 'vue';
-
+// CORE LIBRARY
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 // Regular icons
