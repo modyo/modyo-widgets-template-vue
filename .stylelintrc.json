@@ -10,6 +10,7 @@
       "except": ["first-nested"],
       "ignore": ["after-comment"]
     } ],
+    "scss/at-function-named-arguments": ["never", { "ignoreFunctions": ["scale-color"] }],
     "order/properties-order": [
       {
         "groupName":" Must be first.",
