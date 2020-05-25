@@ -9,7 +9,6 @@ module.exports = {
   extends: [
     'plugin:vue/recommended',
     '@vue/airbnb',
-    'plugin:vuejs-accessibility/recommended',
   ],
 
   rules: {
