@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ExampleComponent from '../../src/components/ExampleComponent';
+import ExampleComponent from '../../src/components/ExampleComponent.vue';
 
 describe('ExampleComponent', () => {
   test('runs as expected', () => {
@@ -115,7 +115,7 @@ describe('ExampleComponent', () => {
     const image = 'imagen';
     const imageAlt = 'alternative image text';
 
-    const wrapper = shallowMount(ExampleComponent, {
+    shallowMount(ExampleComponent, {
       propsData: {
         title,
         description,
