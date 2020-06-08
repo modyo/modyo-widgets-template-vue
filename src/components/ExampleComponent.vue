@@ -7,16 +7,18 @@
       {{ title }}
     </h3>
     <p
-      class="text-muted mb-5"
-      v-html="description">
-    </p>
+      class="text-muted"
+      v-html="description" />
     <a
       class="btn btn-outline-primary"
-      :href="link">Learn more</a>
+      :href="linkFull">Learn more</a>
   </div>
 </template>
 
 <script>
+import { accountUrl, sitePath } from '../repositories/settings/modyo';
+
+
 export default {
   name: 'ExampleComponent',
   props: {
@@ -34,11 +36,20 @@ export default {
     },
     imageAlt: {
       type: String,
-      required: true,
+      default: 'imagen',
     },
     link: {
       type: String,
       required: true,
+    },
+  },
+  data: () => ({
+    urlBase: accountUrl,
+    path: sitePath,
+  }),
+  computed: {
+    linkFull() {
+      return `${this.urlBase}/${this.sitePath}/${this.link}`;
     },
   },
 };
@@ -48,9 +59,14 @@ export default {
 <style scoped lang="scss">
 img {
   max-width: 100%;
-}
-p{
   height:300px;
-  overflow:hidden;
+  display: block;
+}
+h3{
+  height: 2em;
+}
+p {
+  height: 300px;
+  overflow: hidden;
 }
 </style>
