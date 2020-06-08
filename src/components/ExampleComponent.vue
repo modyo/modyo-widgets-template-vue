@@ -58,13 +58,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 img {
-  max-width: 100%;
-  height:300px;
   display: block;
+
+  max-width: 100%;
+  height: 300px;
 }
-h3{
+
+h3 {
   height: 2em;
 }
+
 p {
   height: 300px;
   overflow: hidden;
