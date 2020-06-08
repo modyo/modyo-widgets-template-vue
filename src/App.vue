@@ -90,7 +90,7 @@
 import Examplecomponent from './components/ExampleComponent.vue';
 import Repository from './repositories/RepositoryFactory';
 
-const TestRepository = Repository.get('test');
+const PostRepository = Repository.get('post');
 
 export default {
   name: 'App',
@@ -105,7 +105,7 @@ export default {
     };
   },
   async created() {
-    const response = await TestRepository.get();
+    const response = await PostRepository.getTop(3);
     this.posts = response.entries.map((entry) => ({
       description: entry.fields.description,
       title: entry.fields.title,

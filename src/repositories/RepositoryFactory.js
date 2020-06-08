@@ -1,7 +1,9 @@
-import TestRepository from './TestRepository';
+import PostRepository from './PostRepository';
+import ApiRepository from './ApiRepository';
 
 const repositories = {
-  test: TestRepository,
+  post: PostRepository,
+  api: ApiRepository,
 };
 export default {
   get: (name) => repositories[name],
