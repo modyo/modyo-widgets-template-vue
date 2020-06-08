@@ -20,6 +20,8 @@ module.exports = {
     'max-len': [2, {
       code: 120, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreUrls: true,
     }],
+    'array-bracket-newline': ['warn', { minItems: 3 }],
+    'array-element-newline': ['warn', { minItems: 3 }],
     'vue/html-closing-bracket-newline': ['error', {
       singleline: 'never',
       multiline: 'never',

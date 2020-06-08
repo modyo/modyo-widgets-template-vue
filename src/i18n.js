@@ -7,8 +7,13 @@ import VueI18n from 'vue-i18n';
 // If you add another language to your project be sure to:
 // STEP 1: import the validations messages from vee-validate.
 import esCL from 'vee-validate/dist/locale/es.json';
+import enUS from 'vee-validate/dist/locale/en.json';
 
 Vue.use(VueI18n);
+
+// Get page language from modyo, change to your needs
+const LANG = window.liquid ? window.liquid.lang : 'es-CL';
+
 
 function loadLocaleMessages() {
   const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i);
@@ -28,12 +33,17 @@ function loadLocaleMessages() {
     validations: esCL.messages,
   };
 
+  messages['en-US'] = {
+    ...messages['en-US'],
+    validations: enUS.messages,
+  };
+
 
   return messages;
 }
 
 export default new VueI18n({
-  locale: process.env.VUE_APP_I18N_LOCALE || 'es-CL',
-  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'es-CL',
+  locale: LANG,
+  fallbackLocale: 'es-CL',
   messages: loadLocaleMessages(),
 });
