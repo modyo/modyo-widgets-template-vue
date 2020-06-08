@@ -109,7 +109,7 @@ export default {
     this.posts = response.entries.map((entry) => ({
       description: entry.fields.description,
       title: entry.fields.title,
-      link: entry.fields.slug,
+      slug: entry.fields.slug,
       image: entry.fields.covers ? entry.fields.covers[0].url : '',
       imageAlt: entry.fields.covers ? entry.fields.covers[0].alt_text : '',
     }));

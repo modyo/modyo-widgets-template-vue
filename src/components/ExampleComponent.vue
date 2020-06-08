@@ -2,7 +2,7 @@
   <div class="col-md-4 text-center">
     <img
       :src="image"
-      :alt="title">
+      :alt="imageAlt">
     <h3 class="h4 mt-3">
       {{ title }}
     </h3>
@@ -38,7 +38,7 @@ export default {
       type: String,
       default: 'imagen',
     },
-    link: {
+    slug: {
       type: String,
       required: true,
     },
@@ -49,7 +49,7 @@ export default {
   }),
   computed: {
     linkFull() {
-      return `${this.urlBase}/${this.sitePath}/${this.link}`;
+      return `${this.urlBase}/${this.sitePath}/${this.slug}`;
     },
   },
 };
