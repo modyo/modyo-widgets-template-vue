@@ -6,9 +6,11 @@
     <h3 class="h4 mt-3">
       {{ title }}
     </h3>
+    <!-- eslint-disable -->
     <p
       class="text-muted"
       v-html="description" />
+      <!-- eslint-enable -->
     <a
       class="btn btn-outline-primary"
       :href="linkFull">Learn more</a>
