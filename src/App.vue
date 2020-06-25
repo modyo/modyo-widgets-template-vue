@@ -54,23 +54,32 @@
         </div>
       </div>
     </div>
-
-    <examplecomponent
-      title-one="Lorem ipsum dolor"
-      title-two="Adipiscing elit"
-      title-three="Sed do eiusmod" />
-
-    <div
-      id="footer"
-      class="py-5 mt-4"
-      role="contentinfo">
-      <div class="container">
-        <div class="mt-2 pt-2 border-top d-flex">
-          <span>{{ siteName }} &copy;{{ year }}</span>
-          <span class="ml-auto">Made with <font-awesome-icon
-            :icon="['fas', 'heart']"
-            color="red"
-            class="mx-2" /> in <a href="https://www.modyo.com">Modyo CLI</a></span>
+    <div class="bg-white py-5">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-md-2" />
+          <div class="col-md-8 text-center">
+            <div class="row">
+              <examplecomponent
+                v-for="post in posts"
+                :key="post.id"
+                v-bind="post" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="footer"
+        class="py-5 mt-4"
+        role="contentinfo">
+        <div class="container">
+          <div class="mt-2 pt-2 border-top d-flex">
+            <span>{{ siteName }} &copy;{{ year }}</span>
+            <span class="ml-auto">Made with <font-awesome-icon
+              :icon="['fas', 'heart']"
+              color="red"
+              class="mx-2" /> in <a href="https://www.modyo.com">Modyo CLI</a></span>
+          </div>
         </div>
       </div>
     </div>
@@ -79,6 +88,9 @@
 
 <script>
 import Examplecomponent from './components/ExampleComponent.vue';
+import Repository from './repositories/RepositoryFactory';
+
+const PostRepository = Repository.get('post');
 
 export default {
   name: 'App',
@@ -89,7 +101,18 @@ export default {
     return {
       year: new Date().getFullYear(),
       siteName: 'My Site',
+      posts: [],
     };
+  },
+  async created() {
+    const response = await PostRepository.getTop(3);
+    this.posts = response.entries.map((entry) => ({
+      description: entry.fields.description,
+      title: entry.fields.title,
+      slug: entry.fields.slug,
+      image: entry.fields.covers ? entry.fields.covers[0].url : '',
+      imageAlt: entry.fields.covers ? entry.fields.covers[0].alt_text : '',
+    }));
   },
 };
 </script>

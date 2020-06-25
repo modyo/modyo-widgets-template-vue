@@ -6,17 +6,18 @@ module.exports = {
     browser: true,
   },
 
-  extends: [
-    'plugin:vue/recommended',
-    '@vue/airbnb',
-  ],
+  extends: ['plugin:vue/recommended', '@vue/airbnb'],
 
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
-    'import/extensions': ['error', 'always', {
-      js: 'never',
-    }],
+    'import/extensions': [
+      'error',
+      'always',
+      {
+        js: 'never',
+      },
+    ],
     'max-len': [2, {
       code: 120, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreUrls: true,
     }],
@@ -33,10 +34,14 @@ module.exports = {
         allowFirstLine: false,
       },
     }],
-    'vue/component-name-in-template-casing': ['error', 'kebab-case', {
-      registeredComponentsOnly: true,
-      ignores: [],
-    }],
+    'vue/component-name-in-template-casing': [
+      'error',
+      'kebab-case',
+      {
+        registeredComponentsOnly: true,
+        ignores: [],
+      },
+    ],
     'no-param-reassign': ['error', {
       props: true,
       ignorePropertyModificationsFor: [
@@ -50,15 +55,10 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
   },
-  overrides: [
-    {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
-      ],
-      env: {
-        jest: true,
-      },
+  overrides: [{
+    files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
+    env: {
+      jest: true,
     },
-  ],
+  }],
 };

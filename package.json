@@ -19,6 +19,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@fullhuman/postcss-purgecss": "^2.2.0",
+    "@modyo/sdk": "^1.0.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
@@ -28,7 +29,7 @@
     "vee-validate": "^3.3.2",
     "vue": "^2.6.11",
     "vue-axe": "^2.3.0",
-    "vue-i18n": "^8.18.1",
+    "vue-i18n": "^8.18.2",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
@@ -44,7 +45,7 @@
     "axe-core": "^3.5.4",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
