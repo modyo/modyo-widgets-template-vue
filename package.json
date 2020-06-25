@@ -10,7 +10,8 @@
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
     "lint:style": "stylelint 'src/**/*.(vue|htm|html|css|sass|less|scss|stylus)'",
     "modyo-push": "modyo-cli push --publish",
-    "modyo-serve": "vue-cli-service modyo-serve"
+    "modyo-serve": "vue-cli-service modyo-serve",
+    "commit:lint": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -19,6 +20,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@fullhuman/postcss-purgecss": "^2.2.0",
+    "@modyo/sdk": "^1.0.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
@@ -28,10 +30,12 @@
     "vee-validate": "^3.3.2",
     "vue": "^2.6.11",
     "vue-axe": "^2.3.0",
-    "vue-i18n": "^8.18.1",
+    "vue-i18n": "^8.18.2",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
     "@modyo/cli": "^3.1.13",
     "@modyo/vue-cli-plugin-connector": "~1.4.3",
     "@vue/cli-plugin-babel": "~4.4.1",
@@ -43,13 +47,16 @@
     "@vue/test-utils": "1.0.3",
     "axe-core": "^3.5.4",
     "babel-eslint": "^10.1.0",
+    "commitlint": "^9.0.1",
     "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.2.5",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
     "stylelint": "^13.6.0",
     "stylelint-config-twbs-bootstrap": "^2.0.3",
+    "validate-branch-name": "^1.0.6",
     "vue-cli-plugin-i18n": "~1.0.1",
     "vue-template-compiler": "^2.6.11"
   }
