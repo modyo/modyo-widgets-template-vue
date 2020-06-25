@@ -1,0 +1,9 @@
+{
+  "hooks": {
+    "commit-msg": "yarn commit:lint",
+    "pre-commit":"yarn validate-branch-name",
+    "pre-push": "yarn lint && yarn lint:style && yarn test:unit",
+    "post-merge":"",
+    "post-checkout":"yarn validate-branch-name"
+  }
+}
