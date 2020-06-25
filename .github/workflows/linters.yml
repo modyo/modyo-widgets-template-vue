@@ -1,4 +1,4 @@
-name: ESLint
+name: Linters
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ on:
     types: [ opened, edited, reopened, synchronize ]
 jobs:
   run-eslint:
-    name: Run ESLint
+    name: Run Linters
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -30,9 +30,14 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install packages
         if: steps.yarn-cache-set-path.outputs.cache-hit != 'true'
-        run: yarn
+        run: |
+          yarn
         env:
           NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Lint Package
+      - name: Lint JS
         run: yarn lint
+      - name: Lint Styles
+        run: yarn lint:style
+      - name: Unit Test
+        run: yarn test:unit
