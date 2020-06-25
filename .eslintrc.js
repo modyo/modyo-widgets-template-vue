@@ -19,7 +19,11 @@ module.exports = {
       },
     ],
     'max-len': [2, {
-      code: 120, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreUrls: true,
+      code: 120, 
+      ignoreStrings: true, 
+      ignoreTemplateLiterals: true, 
+      ignoreUrls: true,
+      ignorePattern: 'd="([\\s\\S]*?)"',
     }],
     'array-bracket-newline': ['warn', { minItems: 3 }],
     'array-element-newline': ['warn', { minItems: 3 }],
@@ -56,7 +60,10 @@ module.exports = {
     parser: 'babel-eslint',
   },
   overrides: [{
-    files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
+    files: [
+      '**/__tests__/*.{j,t}s?(x)',
+       '**/tests/unit/**/*.spec.{j,t}s?(x)'
+      ],
     env: {
       jest: true,
     },
