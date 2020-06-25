@@ -1,0 +1,5 @@
+feature: ['feature/*', 'feat/*','release/*']
+fix: ['fix/*','hotfix/*','bug/*']
+chore: ['chore/*','task/*']
+poc: 'poc/*'
+ci: 'ci/*'
