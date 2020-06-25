@@ -35,7 +35,7 @@ jobs:
         MODYO_TOKEN: ${{secrets.TOKEN}}
         MODYO_SITE_ID: ${{secrets.SITE_ID}}
         MODYO_WIDGET_NAME: ${{secrets.WIDGET_NAME}}
-    - name: Push to Spanish Modyo Site
+    - name: Push to Modyo Site
       run: yarn modyo-push "$MODYO_WIDGET_NAME"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
@@ -44,13 +44,6 @@ jobs:
         MODYO_TOKEN: ${{secrets.TOKEN}}
         MODYO_SITE_ID: ${{secrets.SITE_ID_ES}}
         MODYO_WIDGET_NAME: ${{secrets.WIDGET_NAME}}
-    - name: Release Draft
-      uses: release-drafter/release-drafter@v5
-      with:
-        # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
-        config-name: release-drafter.yml
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Run ESLint on pull requests
@@ -137,4 +130,45 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Lint Package
         run: yarn lint:style
+```
+## Run Unit Test on Pull Request
+```yml
+name: Unit Test
+
+on:
+  pull_request:
+    branches:
+      - master
+      - develop
+    types: [ opened, edited, reopened, synchronize ]
+jobs:
+  run-stylelint:
+    name: Run Unit Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@modyo'
+      - name: Get yarn cache directory path
+        id: yarn-cache-set-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-set-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install packages
+        if: steps.yarn-cache-set-path.outputs.cache-hit != 'true'
+        run: yarn install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lint Package
+        run: yarn test:unit
 ```
