@@ -10,7 +10,7 @@
     <p
       class="text-muted"
       v-html="description" />
-      <!-- eslint-enable -->
+    <!-- eslint-enable -->
     <a
       class="btn btn-outline-primary"
       :href="linkFull">Learn more</a>
