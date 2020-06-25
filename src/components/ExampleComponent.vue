@@ -6,6 +6,7 @@
     <h3 class="h4 mt-3">
       {{ title }}
     </h3>
+      <!-- eslint-disable-next-line vue/no-v-html -->
     <p
       class="text-muted"
       v-html="description" />
