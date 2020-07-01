@@ -1,5 +1,6 @@
-feature: ['feature/*', 'feat/*','release/*']
-fix: ['fix/*','hotfix/*','bug/*']
-chore: ['chore/*','task/*']
-poc: 'poc/*'
-ci: 'ci/*'
+feature: ['feature/*', 'feat/*']
+fix: 'fix/*'
+chore: 'chore/*'
+improvement: 'improvement/*'
+docs: 'docs/*'
+refactor: 'refactor/*'

@@ -1,6 +1,12 @@
-# Example of github action in case you need it
+# Github Actions
+
+Here are some examples you can use to automate different process using github actions for CI/CD.
+
+*(The names of the files are as an example, you can name them as you want, the location of them is the important thing).*
 
 ## Build and publish to modyo
+
+put this in `.github/workflows/build-publish.yml`
 
 ```yml
 name: Build and Publish
@@ -20,8 +26,16 @@ jobs:
         registry-url: https://npm.pkg.github.com/
         scope: '@modyo'
     - name: Install dependencies with yarn
+      # if your project use more than one private registry you cad add it like this:
+      # run: |
+      #   echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
+      #   echo "//npm.fontawesome.com/:_authToken=$FORTAWESOME_TOKEN" >> .npmrc
+      #   yarn
+      # if not do this:
       run: yarn
       env:
+        # And add the additional registry token here:
+        # FORTAWESOME_TOKEN: ${{secrets.FORTAWESOME_TOKEN}}
         NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
     - name: Build Package
@@ -35,7 +49,7 @@ jobs:
         MODYO_TOKEN: ${{secrets.TOKEN}}
         MODYO_SITE_ID: ${{secrets.SITE_ID}}
         MODYO_WIDGET_NAME: ${{secrets.WIDGET_NAME}}
-    - name: Push to Modyo Site
+    - name: Push to Spanish Modyo Site
       run: yarn modyo-push "$MODYO_WIDGET_NAME"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
@@ -44,12 +58,20 @@ jobs:
         MODYO_TOKEN: ${{secrets.TOKEN}}
         MODYO_SITE_ID: ${{secrets.SITE_ID_ES}}
         MODYO_WIDGET_NAME: ${{secrets.WIDGET_NAME}}
+    - name: Release Draft
+      uses: release-drafter/release-drafter@v5
+      with:
+        config-name: release-drafter.yml
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-## Run ESLint on pull requests
+## Run ESLint and Stylelint on pull requests
+
+put this in `.github/workflows/linters.yml`
 
 ```yml
-name: ESLint
+name: Linters
 
 on:
   pull_request:
@@ -58,8 +80,8 @@ on:
       - develop
     types: [ opened, edited, reopened, synchronize ]
 jobs:
-  run-eslint:
-    name: Run ESLint
+  run-linters:
+    name: Run Linters
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -74,6 +96,61 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v1
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-set-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install packages
+        if: steps.yarn-cache-set-path.outputs.cache-hit != 'true'
+        # if your project use more than one private registry you cad add it like this:
+        # run: |
+        #   echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
+        #   echo "//npm.fontawesome.com/:_authToken=$FORTAWESOME_TOKEN" >> .npmrc
+        #   yarn
+        # if not do this:
+        run: yarn
+        env:
+          # And add the additional registry token here:
+          # FORTAWESOME_TOKEN: ${{secrets.FORTAWESOME_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lint JS
+        run: yarn lint
+      - name: Lint Styles
+        run: yarn lint:style
+
+```
+
+## Run Unit Tests
+
+put this in `.github/workflows/tests.yml`
+
+```yml
+name: Unit Tests
+
+on:
+  pull_request:
+    types:
+      [ opened, edited, reopened, synchronize, ready_for_review, review_requested, review_request_removed
+      ]
+jobs:
+  run-tests:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@modyo'
+      - name: Get yarn cache directory path
+        id: yarn-cache-set-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-set-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -85,90 +162,157 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Lint Package
-        run: yarn lint
-```
-
-## Run Stylelint on pull requests
-
-```yml
-name: Stylelint
-
-on:
-  pull_request:
-    branches:
-      - master
-      - develop
-    types: [ opened, edited, reopened, synchronize ]
-jobs:
-  run-stylelint:
-    name: Run Stylelint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@modyo'
-      - name: Get yarn cache directory path
-        id: yarn-cache-set-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-set-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install packages
-        if: steps.yarn-cache-set-path.outputs.cache-hit != 'true'
-        run: yarn install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Lint Package
-        run: yarn lint:style
-```
-## Run Unit Test on Pull Request
-```yml
-name: Unit Test
-
-on:
-  pull_request:
-    branches:
-      - master
-      - develop
-    types: [ opened, edited, reopened, synchronize ]
-jobs:
-  run-stylelint:
-    name: Run Unit Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@modyo'
-      - name: Get yarn cache directory path
-        id: yarn-cache-set-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-set-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install packages
-        if: steps.yarn-cache-set-path.outputs.cache-hit != 'true'
-        run: yarn install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Lint Package
+      - name: Unit Tests
         run: yarn test:unit
+```
+
+## Publish package on Github registry (for commons repos)
+
+put this in `.github/workflows/publish-package.yml`
+
+```yml
+name: Publish Repo
+
+on:
+  release:
+    types: [published]
+jobs:
+  publish-library:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+        registry-url: https://npm.pkg.github.com/
+        scope: '@modyo'
+    - name: Install dependencies with yarn
+      # if your project use more than one private registry you cad add it like this:
+      # run: |
+      #   echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
+      #   echo "//npm.fontawesome.com/:_authToken=$FORTAWESOME_TOKEN" >> .npmrc
+      #   yarn
+      # if not do this:
+      run: yarn
+      env:
+        # And add the additional registry token here:
+        # FORTAWESOME_TOKEN: ${{secrets.FORTAWESOME_TOKEN}}
+        NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
+    - name: Build Library
+      run: yarn build:lib
+    - name: Versioning
+      run : |
+          echo $GITHUB_REF
+          TAG=$(echo $GITHUB_REF | cut -c 11-)
+          echo $TAG
+          git config user.email "operations@modyo.com"
+          git config user.name "Modyo"
+          yarn version --new-version  $TAG
+    - name: Publish to GitHub Package Registry
+      run: yarn publish
+      env:
+        NODE_AUTH_TOKEN: ${{github.token}}
+```
+
+## Release draft
+
+put this in `.github/workflows/release-draft.yml`
+
+[View docs](https://github.com/release-drafter/release-drafter)
+
+```yml
+name: Release Drafter
+
+on:
+  push:
+    # branches to consider in the event; optional, defaults to all
+    branches:
+      - master
+
+jobs:
+  update_release_draft:
+    runs-on: ubuntu-latest
+    steps:
+      # Drafts your next Release notes as Pull Requests are merged into "master"
+      - uses: release-drafter/release-drafter@v5
+        with:
+          # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
+          config-name: release-drafter.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+```
+
+## Release drafter
+
+put this in `.github/release-drafter.yml`
+
+```yml
+name-template: 'v$NEXT_PATCH_VERSION'
+tag-template: '$NEXT_PATCH_VERSION'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+template: |
+  ## Changes
+  $CHANGES
+
+  ## Contributors
+  $CONTRIBUTORS
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'feature'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+  - title: '🎨 Refactor'
+    labels:
+      - 'refactor'
+  - title: '🧰 Maintenance'
+    labels:
+      - 'chore'
+      - 'improvement'
+  - title: '📝 Docs'
+    labels:
+      - 'docs'
+
+
+```
+
+## PR Labeler
+
+put this in `.github/workflows/pr-labeler.yml`
+
+[View docs](https://github.com/TimonVS/pr-labeler-action)
+
+```yml
+name: PR Labeler
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  pr-labeler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TimonVS/pr-labeler-action@v3
+        with:
+          configuration-path: .github/pr-labeler.yml # optional, .github/pr-labeler.yml is the default value
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+## PR Labeler config
+
+put this in `.github/pr-labeler.yml`
+
+```yml
+feature: ['feature/*', 'feat/*']
+fix: 'fix/*'
+chore: 'chore/*'
+improvement: 'improvement/*'
+docs: 'docs/*'
+refactor: 'refactor/*'
+
 ```
