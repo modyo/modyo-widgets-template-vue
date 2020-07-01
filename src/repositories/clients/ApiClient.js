@@ -1,9 +1,8 @@
 import axios from 'axios';
 import ModyoAuth from './ModyoAuthClient';
-import { externalApiBase } from '../settings/modyo';
+import { externalApiBase } from './config/modyo.config';
 
-
-const apiAxios = axios.create({
+const apiClient = axios.create({
   baseURL: externalApiBase,
 });
 
@@ -18,6 +17,6 @@ const injectToken = async (config) => {
   }
 };
 
-apiAxios.interceptors.request.use(injectToken);
+apiClient.interceptors.request.use(injectToken);
 
-export default apiAxios;
+export default apiClient;

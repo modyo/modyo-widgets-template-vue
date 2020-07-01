@@ -14,7 +14,6 @@ Vue.use(VueI18n);
 // Get page language from modyo, change to your needs
 const LANG = window.liquid ? window.liquid.lang : 'es-CL';
 
-
 function loadLocaleMessages() {
   const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i);
   const messages = {};
@@ -37,7 +36,6 @@ function loadLocaleMessages() {
     ...messages['en-US'],
     validations: enUS.messages,
   };
-
 
   return messages;
 }

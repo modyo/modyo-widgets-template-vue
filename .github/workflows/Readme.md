@@ -66,12 +66,12 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-## Run ESLint and Stylelint on pull requests
+## Run ESLint, Stylelint and Unit Tests on pull requests
 
 put this in `.github/workflows/linters.yml`
 
 ```yml
-name: Linters
+name: Linters and Test
 
 on:
   pull_request:
@@ -80,8 +80,8 @@ on:
       - develop
     types: [ opened, edited, reopened, synchronize ]
 jobs:
-  run-linters:
-    name: Run Linters
+  run-linters-tests:
+    name: Run Linters and Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -119,54 +119,12 @@ jobs:
         run: yarn lint
       - name: Lint Styles
         run: yarn lint:style
-
-```
-
-## Run Unit Tests
-
-put this in `.github/workflows/tests.yml`
-
-```yml
-name: Unit Tests
-
-on:
-  pull_request:
-    types:
-      [ opened, edited, reopened, synchronize, ready_for_review, review_requested, review_request_removed
-      ]
-jobs:
-  run-tests:
-    name: Run Unit Tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@modyo'
-      - name: Get yarn cache directory path
-        id: yarn-cache-set-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-set-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install packages
-        if: steps.yarn-cache-set-path.outputs.cache-hit != 'true'
-        run: yarn
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Unit Tests
         run: yarn test:unit
+
 ```
 
-## Publish package on Github registry (for commons repos)
+## Publish package on Github registry
 
 put this in `.github/workflows/publish-package.yml`
 
@@ -207,9 +165,12 @@ jobs:
           echo $GITHUB_REF
           TAG=$(echo $GITHUB_REF | cut -c 11-)
           echo $TAG
-          git config user.email "operations@modyo.com"
-          git config user.name "Modyo"
+          git config user.email echo $EMAIL
+          git config user.name echo $NAME
           yarn version --new-version  $TAG
+      env:
+        EMAIL: ${{ secrets.EMAIL }}
+        NAME: ${{ secrets.NAME }}
     - name: Publish to GitHub Package Registry
       run: yarn publish
       env:
@@ -245,7 +206,7 @@ jobs:
 
 ```
 
-## Release drafter
+## Release drafter config
 
 put this in `.github/release-drafter.yml`
 

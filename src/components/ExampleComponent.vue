@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import { accountUrl, sitePath } from '../repositories/settings/modyo';
-
+import { accountUrl, sitePath } from '../repositories/clients/config/modyo.config';
 
 export default {
   name: 'ExampleComponent',

@@ -1,5 +1,9 @@
 export default {
-  // updateValue(state, payload) {
-  //     state.value = payload;
-  //   }
+  setLoading(state, payload) {
+    state.loading = payload;
+  },
+
+  updatePosts(state, payload) {
+    state.posts = payload;
+  },
 };
