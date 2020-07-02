@@ -17,7 +17,6 @@ import {
   max_value,
 } from 'vee-validate/dist/rules';
 
-
 import i18n from './i18n';
 
 configure({

@@ -6,11 +6,11 @@
     <h3 class="h4 mt-3">
       {{ title }}
     </h3>
-    <!-- eslint-disable -->
+    <!-- eslint-disable vue/no-v-html-->
     <p
       class="text-muted"
       v-html="description" />
-      <!-- eslint-enable -->
+    <!-- eslint-enable -->
     <a
       class="btn btn-outline-primary"
       :href="linkFull">Learn more</a>
@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import { accountUrl, sitePath } from '../repositories/settings/modyo';
-
+import { accountUrl, sitePath } from '../repositories/clients/config/modyo.config';
 
 export default {
   name: 'ExampleComponent',

@@ -1,6 +1,6 @@
 import ModyoSdk from './clients/ModyoClient';
 
-import { space, type } from './settings/modyo';
+import { space, type } from './clients/config/modyo.config';
 
 const content = ModyoSdk.getContentType(space, type);
 const privateContent = ModyoSdk.getContentType(space, type, false);
