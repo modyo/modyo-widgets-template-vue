@@ -16,6 +16,8 @@ if (IN_PRODUCTION) {
       /^(?!(|.*?:)cursor-move).+-move$/,
       /^router-link(|-exact)-active$/,
       /data-v-.*/,
+      /svg.*/,
+      /fa.*/,
     ],
   });
 }

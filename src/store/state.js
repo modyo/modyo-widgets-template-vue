@@ -1,3 +1,4 @@
 export default {
-// key: value
+  loading: true,
+  posts: [],
 };

@@ -60,7 +60,7 @@
           <div class="col-md-2" />
           <div class="col-md-8 text-center">
             <div class="row">
-              <examplecomponent
+              <example-component
                 v-for="post in posts"
                 :key="post.id"
                 v-bind="post" />
@@ -87,32 +87,28 @@
 </template>
 
 <script>
-import Examplecomponent from './components/ExampleComponent.vue';
-import Repository from './repositories/RepositoryFactory';
-
-const PostRepository = Repository.get('post');
+import { mapState, mapActions } from 'vuex';
+import ExampleComponent from './components/ExampleComponent.vue';
 
 export default {
   name: 'App',
   components: {
-    Examplecomponent,
+    ExampleComponent,
   },
   data() {
     return {
       year: new Date().getFullYear(),
       siteName: 'My Site',
-      posts: [],
     };
   },
-  async created() {
-    const response = await PostRepository.getTop(3);
-    this.posts = response.entries.map((entry) => ({
-      description: entry.fields.description,
-      title: entry.fields.title,
-      slug: entry.fields.slug,
-      image: entry.fields.covers ? entry.fields.covers[0].url : '',
-      imageAlt: entry.fields.covers ? entry.fields.covers[0].alt_text : '',
-    }));
+  computed: {
+    ...mapState(['posts']),
+  },
+  created() {
+    this.getPosts();
+  },
+  methods: {
+    ...mapActions(['getPosts']),
   },
 };
 </script>
