@@ -2,7 +2,7 @@ import PostRepository from './PostRepository';
 import ApiRepository from './ApiRepository';
 
 const repositories = {
-  post: PostRepository,
+  posts: PostRepository,
   api: ApiRepository,
 };
 export default {

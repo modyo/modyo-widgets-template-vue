@@ -1,6 +1,6 @@
 import Repository from '../repositories/RepositoryFactory';
 
-const PostRepository = Repository.get('post');
+const PostRepository = Repository.get('posts');
 
 export default {
   async getPosts({ commit }) {
