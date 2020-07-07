@@ -18,6 +18,7 @@ if (IN_PRODUCTION) {
       /data-v-.*/,
       /svg.*/,
       /fa.*/,
+      /^d-*/,
     ],
   });
 }
