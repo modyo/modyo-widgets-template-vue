@@ -2,6 +2,8 @@
   "name": "initialization",
   "version": "1.0.0",
   "private": true,
+  "description": "Describe your widget",
+  "author": "Author Name",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -35,7 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",
-    "@modyo/cli": "^3.1.14",
+    "@modyo/cli": "^3.1.15",
     "@modyo/vue-cli-plugin-connector": "~1.4.6",
     "@vue/cli-plugin-babel": "~4.4.6",
     "@vue/cli-plugin-eslint": "~4.4.6",
@@ -55,7 +57,22 @@
     "stylelint": "^13.6.1",
     "stylelint-config-twbs-bootstrap": "^2.0.3",
     "validate-branch-name": "^1.0.6",
+    "vue-svg-loader": "^0.16.0",
     "vue-cli-plugin-i18n": "~1.0.1",
     "vue-template-compiler": "^2.6.11"
+  },
+  "bugs": "https://github.com/XXXXXXXX/XXXXXXXX/issues",
+  "contributors": [
+    "XXXXXXXX <XXXXXXXX@XXXXXXXX.com>",
+    "XXXXXXXX <XXXXXXXX@XXXXXXXX.com>"
+  ],
+  "homepage": "https://github.com/XXXXXXXX/XXXXXXXX",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:XXXXXXXX/XXXXXXXX.git"
   }
 }

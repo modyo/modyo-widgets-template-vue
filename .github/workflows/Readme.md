@@ -120,7 +120,7 @@ jobs:
       - name: Lint Styles
         run: yarn lint:style
       - name: Unit Tests
-        run: yarn test:unit
+        run: yarn test:unit --passWithNoTests
 
 ```
 
