@@ -3,7 +3,6 @@
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
     "pre-commit": "validate-branch-name",
     "pre-push": "yarn lint && yarn lint:style && yarn test:unit",
-    "post-merge": "",
     "post-checkout": "validate-branch-name"
   }
 }

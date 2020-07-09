@@ -1209,10 +1209,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@modyo/cli@^3.1.14":
-  version "3.1.14"
-  resolved "https://npm.pkg.github.com/download/@modyo/cli/3.1.14/c1a80174bbd5eac979967c3c5153a44eafd89073da766971e761df6f484f314d#7a80f63884848a3b2d7487f9f4dfdf80a33ebdee"
-  integrity sha512-fMdVaXWKfnXL/xzoCQPQpRphoCfxjT7Sf5rn7piQxzOIyu6peA1uIvr2baX4Qh3hZf2aY0wns8PVXp9czoq1Ew==
+"@modyo/cli@^3.1.15":
+  version "3.1.15"
+  resolved "https://npm.pkg.github.com/download/@modyo/cli/3.1.15/b33895cb4fb4005758026dd1e0082c701b4ec79f76152b7440964d8c439f468a#9a0af15edf9242f260da846811216c7455958476"
+  integrity sha512-SZwCJstWqWG2VFoRb6uaixtdb3ZIbTusi4WHOoXjcbqBo0JimaMfbS8QMx109Hq2nJBe1N8RogfC18L6tMrKUA==
   dependencies:
     "@oclif/command" "^1.6.1"
     "@oclif/config" "^1.15.1"
@@ -11324,7 +11324,14 @@ svg-tags@^1.0.0:
   resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
   integrity sha1-WPcc7jvVGbWdSyqEO2x95krAR2Q=
 
-svgo@^1.0.0:
+svg-to-vue@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/svg-to-vue/-/svg-to-vue-0.7.0.tgz#ec86deb1742be38319462e36703af1dfa2f9fad9"
+  integrity sha512-Tg2nMmf3BQorYCAjxbtTkYyWPVSeox5AZUFvfy4MoWK/5tuQlnA/h3LAlTjV3sEvOC5FtUNovRSj3p784l4KOA==
+  dependencies:
+    svgo "^1.3.2"
+
+svgo@^1.0.0, svgo@^1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.3.2.tgz#b6dc511c063346c9e415b81e43401145b96d4167"
   integrity sha512-yhy/sQYxR5BkC98CY7o31VGsg014AKLEPxdfhora76l36hD9Rdy5NZA/Ocn6yayNPgSamYdtX2rFJdcv07AYVw==
@@ -12198,6 +12205,14 @@ vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
+
+vue-svg-loader@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/vue-svg-loader/-/vue-svg-loader-0.16.0.tgz#adccbdc9aca90132bde9c9d96cd49f74efecd345"
+  integrity sha512-2RtFXlTCYWm8YAEO2qAOZ2SuIF2NvLutB5muc3KDYoZq5ZeCHf8ggzSan3ksbbca7CJ/Aw57ZnDF4B7W/AkGtw==
+  dependencies:
+    loader-utils "^1.2.3"
+    svg-to-vue "^0.7.0"
 
 vue-template-compiler@^2.6.11:
   version "2.6.11"

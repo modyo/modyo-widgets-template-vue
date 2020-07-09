@@ -1,6 +1,8 @@
+chore: 'chore/*'
+ci: 'ci/*'
+docs: 'docs/*'
 feature: ['feature/*', 'feat/*']
 fix: 'fix/*'
-chore: 'chore/*'
-improvement: 'improvement/*'
-docs: 'docs/*'
 refactor: 'refactor/*'
+style: 'style/*'
+test: 'test/*'
