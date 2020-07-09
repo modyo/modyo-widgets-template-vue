@@ -11,16 +11,19 @@ categories:
   - title: '🚀 Features'
     labels:
       - 'feature'
+      - 'feat'
   - title: '🐛 Bug Fixes'
     labels:
       - 'fix'
   - title: '🎨 Refactor'
     labels:
       - 'refactor'
+      - 'style'
   - title: '🧰 Maintenance'
     labels:
       - 'chore'
-      - 'improvement'
-  - title: '📝 Docs'
+      - 'ci'
+  - title: '📝 Docs/Test'
     labels:
       - 'docs'
+      - 'test'
