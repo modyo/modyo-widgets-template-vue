@@ -11,7 +11,9 @@ import './scss/custom.scss';
 Vue.config.productionTip = false;
 
 if (process.env.NODE_ENV === 'development') {
-  Vue.use(VueAxe);
+  Vue.use(VueAxe, {
+    clearConsoleOnUpdate: false,
+  });
 }
 
 new Vue({
