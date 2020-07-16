@@ -6,7 +6,7 @@ import Vue from 'vue';
 // CORE LIBRARY
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-// Regular icons
+// Free Regular icons
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 
 // Solid icons

@@ -1,13 +1,24 @@
 {
   "name": "initialization",
+  "author": "Author Name",
+  "contributors": [
+    "XXXXXXXX <XXXXXXXX@XXXXXXXX.com>",
+    "XXXXXXXX <XXXXXXXX@XXXXXXXX.com>"
+  ],
+  "bugs": "https://github.com/XXXXXXXX/XXXXXXXX/issues",
+  "homepage": "https://github.com/XXXXXXXX/XXXXXXXX",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "description": "Describe your widget",
-  "author": "Author Name",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:XXXXXXXX/XXXXXXXX.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit --passWithNoTests",
     "lint": "vue-cli-service lint",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
     "lint:style": "stylelint 'src/**/*.(vue|htm|html|css|sass|less|scss|stylus)'",
@@ -60,19 +71,5 @@
     "vue-svg-loader": "^0.16.0",
     "vue-cli-plugin-i18n": "~1.0.1",
     "vue-template-compiler": "^2.6.11"
-  },
-  "bugs": "https://github.com/XXXXXXXX/XXXXXXXX/issues",
-  "contributors": [
-    "XXXXXXXX <XXXXXXXX@XXXXXXXX.com>",
-    "XXXXXXXX <XXXXXXXX@XXXXXXXX.com>"
-  ],
-  "homepage": "https://github.com/XXXXXXXX/XXXXXXXX",
-  "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:XXXXXXXX/XXXXXXXX.git"
   }
 }
