@@ -5,6 +5,7 @@ import store from './store';
 import i18n from './i18n';
 import './vee-validate-config';
 import './vue-fontawesome-config';
+
 import 'bootstrap';
 import './scss/custom.scss';
 

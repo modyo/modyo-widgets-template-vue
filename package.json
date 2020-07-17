@@ -26,17 +26,17 @@
     "modyo-serve": "vue-cli-service modyo-serve"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.29",
-    "@fortawesome/free-brands-svg-icons": "^5.13.1",
-    "@fortawesome/free-regular-svg-icons": "^5.13.1",
-    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/vue-fontawesome": "^0.1.10",
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "@modyo/sdk": "^1.0.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
-    "date-fns": "^2.14.0",
+    "date-fns": "^2.15.0",
     "jquery": "~3.5.1",
     "popper.js": "^1.16.1",
     "vee-validate": "^3.3.7",
@@ -46,8 +46,8 @@
     "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^9.0.1",
-    "@commitlint/config-conventional": "^9.0.1",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@modyo/cli": "^3.1.15",
     "@modyo/vue-cli-plugin-connector": "~1.4.6",
     "@vue/cli-plugin-babel": "~4.4.6",
