@@ -44,20 +44,11 @@ jobs:
       run: yarn modyo-push "$MODYO_WIDGET_NAME"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
-        MODYO_ACCOUNT_URL: ${{secrets.BASE_URL}}
-        MODYO_VERSION: ${{secrets.VERSION}}
-        MODYO_TOKEN: ${{secrets.TOKEN}}
-        MODYO_SITE_ID: ${{secrets.SITE_ID}}
-        MODYO_WIDGET_NAME: ${{secrets.WIDGET_NAME}}
-    - name: Push to Spanish Modyo Site
-      run: yarn modyo-push "$MODYO_WIDGET_NAME"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
-        MODYO_ACCOUNT_URL: ${{secrets.BASE_URL}}
-        MODYO_VERSION: ${{secrets.VERSION}}
-        MODYO_TOKEN: ${{secrets.TOKEN}}
-        MODYO_SITE_ID: ${{secrets.SITE_ID_ES}}
-        MODYO_WIDGET_NAME: ${{secrets.WIDGET_NAME}}
+        MODYO_ACCOUNT_URL: ${{secrets.MODYO_ACCOUNT_URL}}
+        MODYO_VERSION: ${{secrets.MODYO_VERSION}}
+        MODYO_TOKEN: ${{secrets.MODYO_TOKEN}}
+        MODYO_SITE_ID: ${{secrets.MODYO_SITE_ID}}
+        MODYO_WIDGET_NAME: ${{secrets.MODYO_WIDGET_NAME}}
     - name: Release Draft
       uses: release-drafter/release-drafter@v5
       with:
