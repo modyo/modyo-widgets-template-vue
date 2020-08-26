@@ -22,14 +22,14 @@
     "@fortawesome/vue-fontawesome": "^0.1.10",
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "@modyo/sdk": "^1.0.3",
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
     "date-fns": "^2.15.0",
     "jquery": "~3.5.1",
     "popper.js": "^1.16.1",
     "vee-validate": "^3.3.9",
-    "vue": "^2.6.11",
+    "vue": "^2.6.12",
     "vue-axe": "^2.4.0",
     "vue-i18n": "^8.21.0",
     "vuex": "^3.5.1"
@@ -53,13 +53,13 @@
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
     "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.3",
+    "sass-loader": "^10.0.1",
     "stylelint": "^13.6.1",
     "stylelint-config-twbs-bootstrap": "^2.0.3",
     "validate-branch-name": "^1.0.6",
     "vue-cli-plugin-i18n": "~1.0.1",
     "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   },
   "bugs": "https://github.com/XXXXXXXX/XXXXXXXX/issues",
   "contributors": [
