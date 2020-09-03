@@ -18,7 +18,7 @@ $gray-900: #212529;
 $black:    #000;
 
 $grays: ();
-// stylelint-disable-next-line scss/dollar-variable-default
+/* stylelint-disable-next-line scss/dollar-variable-default */
 $grays: map-merge(
   (
     "100": $gray-100,
@@ -46,7 +46,7 @@ $teal:    #20c997;
 $cyan:    #17a2b8;
 
 $colors: ();
-// stylelint-disable-next-line scss/dollar-variable-default
+/* stylelint-disable-next-line scss/dollar-variable-default */
 $colors: map-merge(
   (
     "blue":       $blue,
@@ -76,7 +76,7 @@ $light:         $gray-100;
 $dark:          $gray-800;
 
 $theme-colors: ();
-// stylelint-disable-next-line scss/dollar-variable-default
+/* stylelint-disable-next-line scss/dollar-variable-default */
 $theme-colors: map-merge(
   (
     "primary":    $primary,
@@ -136,7 +136,7 @@ $enable-deprecation-messages:                 true;
 
 $spacer: 1rem;
 $spacers: ();
-// stylelint-disable-next-line scss/dollar-variable-default
+/* stylelint-disable-next-line scss/dollar-variable-default */
 $spacers: map-merge(
   (
     0: 0,
@@ -151,7 +151,7 @@ $spacers: map-merge(
 
 // This variable affects the `.h-*` and `.w-*` classes.
 $sizes: ();
-// stylelint-disable-next-line scss/dollar-variable-default
+/* stylelint-disable-next-line scss/dollar-variable-default */
 $sizes: map-merge(
   (
     25: 25%,
@@ -251,7 +251,7 @@ $transition-fade:             opacity .15s linear;
 $transition-collapse:         height .35s ease;
 
 $embed-responsive-aspect-ratios: ();
-// stylelint-disable-next-line scss/dollar-variable-default
+/* stylelint-disable-next-line scss/dollar-variable-default */
 $embed-responsive-aspect-ratios: join(
   (
     (21 9),
@@ -266,11 +266,11 @@ $embed-responsive-aspect-ratios: join(
 //
 // Font, line-height, and color for body text, headings, and more.
 
-// stylelint-disable value-keyword-case
+/* stylelint-disable value-keyword-case */
 $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:            $font-family-sans-serif;
-// stylelint-enable value-keyword-case
+/* stylelint-enable value-keyword-case */
 
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`
 $font-size-lg:                $font-size-base * 1.25;
@@ -650,7 +650,7 @@ $form-feedback-icon-invalid-color:  $form-feedback-invalid-color;
 $form-feedback-icon-invalid:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}' viewBox='0 0 12 12'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>");
 
 $form-validation-states: ();
-// stylelint-disable-next-line scss/dollar-variable-default
+/* stylelint-disable-next-line scss/dollar-variable-default */
 $form-validation-states: map-merge(
   (
     "valid": (
