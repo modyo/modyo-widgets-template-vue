@@ -1,4 +1,0 @@
-{
-  "pattern": "^(master|develop|release){1}$|^(feature|feat|fix|ci|chore|docs|refactor|style|test)\/.+$",
-  "errorMsg": "El nombre de rama no coincide con el standard: ejemplo feature/TAREA-JIRA-1-tarea-detalle \n los tipos permitidos son: (feature|feat|fix|ci|chore|docs|refactor|style|test)"
-}

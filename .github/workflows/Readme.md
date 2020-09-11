@@ -215,21 +215,22 @@ categories:
   - title: '🚀 Features'
     labels:
       - 'feature'
+      - 'feat'
   - title: '🐛 Bug Fixes'
     labels:
       - 'fix'
   - title: '🎨 Refactor'
     labels:
       - 'refactor'
+      - 'style'
   - title: '🧰 Maintenance'
     labels:
       - 'chore'
-      - 'improvement'
-  - title: '📝 Docs'
+      - 'ci'
+  - title: '📝 Docs/Test'
     labels:
       - 'docs'
-
-
+      - 'test'
 ```
 
 ## PR Labeler
@@ -260,11 +261,12 @@ jobs:
 put this in `.github/pr-labeler.yml`
 
 ```yml
+chore: 'chore/*'
+ci: 'ci/*'
+docs: 'docs/*'
 feature: ['feature/*', 'feat/*']
 fix: 'fix/*'
-chore: 'chore/*'
-improvement: 'improvement/*'
-docs: 'docs/*'
 refactor: 'refactor/*'
-
+style: 'style/*'
+test: 'test/*'
 ```
