@@ -20,7 +20,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/vue-fontawesome": "^2.0.0",
-    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "@fullhuman/postcss-purgecss": "^3.0.0",
     "@modyo/sdk": "^1.0.3",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
@@ -28,10 +28,10 @@
     "date-fns": "^2.16.1",
     "jquery": "~3.5.1",
     "popper.js": "^1.16.1",
-    "vee-validate": "^3.3.9",
+    "vee-validate": "^3.4.0",
     "vue": "^2.6.12",
     "vue-axe": "^2.4.1",
-    "vue-i18n": "^8.21.0",
+    "vue-i18n": "^8.21.1",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
