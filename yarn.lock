@@ -1106,8 +1106,8 @@
 
 "@modyo/cli@^3.1.18":
   version "3.1.18"
-  resolved "https://npm.pkg.github.com/download/@modyo/cli/3.1.18/088c4047ff2e7215f6f0f06bf3a262ee14a3f6a36597c7224001a93750567710#158300cea508ee39c3ca82bc2c73341202d8c331"
-  integrity sha512-1Rj7wD5sLjaIO6LvsrZP6ZdjCKYvz7fD12kEgnhtQRfSF3McdI63k4gLjBmaS3AzbJs6YJ/eLHZp4jOhu7WmTw==
+  resolved "https://registry.yarnpkg.com/@modyo/cli/-/cli-3.1.18.tgz#3cc04b47458e62f1fe1bd6b336b12c69813cf2fd"
+  integrity sha512-dGyQ8kyAdsl9JrND/2PvG+uoGtz+ktYT7995LuwgZrW/TtksGxm7cK8+akA+k2kQTJS6gabvXGkWLs4COOrv8Q==
   dependencies:
     "@oclif/command" "^1.6.1"
     "@oclif/config" "^1.15.1"
@@ -1137,15 +1137,15 @@
 
 "@modyo/sdk@^1.0.3":
   version "1.0.3"
-  resolved "https://npm.pkg.github.com/download/@modyo/sdk/1.0.3/f3364070ca30c663c70d1a1e7c55be3cf812e1a5ecc14c4dbaec109c25b6ad70#68cc9346df71b888636ecab0d3152c7857c89ad5"
-  integrity sha512-iPDjvLv/gg/zQkL0YN8bfj7GXHCUsMBVorBqVPZp+7+N51Z2nf1baOZsW05rODnLaKCaaQG9eeg2rb1q4DVakQ==
+  resolved "https://registry.yarnpkg.com/@modyo/sdk/-/sdk-1.0.3.tgz#dee252762429c1aa5e1f6b47225e959bfb835ab2"
+  integrity sha512-GfeqamGEOyB+Sv8L5TqhxjzsS4JWsUbUvF2gVzs/CDLa+VS+18EE9vK0iAXk36kpdA7s1IZUMHzjZrivlY1sYw==
   dependencies:
     axios "^0.19.0"
 
 "@modyo/vue-cli-plugin-connector@~1.4.6":
   version "1.4.6"
-  resolved "https://npm.pkg.github.com/download/@modyo/vue-cli-plugin-connector/1.4.6/94da488ff1e3e3e6024283793dfe1f1f680cb2481bb128ffe70e08879ffed0a5#38b31321134f9b62f6a910986bc7ebb392f6e631"
-  integrity sha512-1fqaYIbNpb2i32mwMxPLP5NapZR5AbdzrW1JbkC+kpXPvVdVHFRMG5MY+YxJKWPUeem4fRhl0STsk7RcdAkxjg==
+  resolved "https://registry.yarnpkg.com/@modyo/vue-cli-plugin-connector/-/vue-cli-plugin-connector-1.4.6.tgz#77fe66f1da4c739b90d1d433cba016a2151e46e9"
+  integrity sha512-MfuIs/pGGTNkhSTsqLple2xXS3qJ0TqUpLKj0UYThLjyHzFoxYbuyK9kekoX8euWMTcQbEUo3DEEizyCEalVpA==
   dependencies:
     "@vue/cli-shared-utils" "^4.3.1"
     dotenv "^8.2.0"
@@ -11059,9 +11059,9 @@ stylelint-scss@^3.18.0:
     postcss-value-parser "^4.1.0"
 
 stylelint@^13.7.0:
-  version "13.7.1"
-  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-13.7.1.tgz#bee97ee78d778a3f1dbe3f7397b76414973e263e"
-  integrity sha512-qzqazcyRxrSRdmFuO0/SZOJ+LyCxYy0pwcvaOBBnl8/2VfHSMrtNIE+AnyJoyq6uKb+mt+hlgmVrvVi6G6XHfQ==
+  version "13.7.2"
+  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-13.7.2.tgz#6f3c58eea4077680ed0ceb0d064b22b100970486"
+  integrity sha512-mmieorkfmO+ZA6CNDu1ic9qpt4tFvH2QUB7vqXgrMVHe5ENU69q7YDq0YUg/UHLuCsZOWhUAvcMcLzLDIERzSg==
   dependencies:
     "@stylelint/postcss-css-in-js" "^0.37.2"
     "@stylelint/postcss-markdown" "^0.36.1"
