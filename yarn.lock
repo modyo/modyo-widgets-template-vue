@@ -1106,8 +1106,8 @@
 
 "@modyo/cli@^3.1.18":
   version "3.1.18"
-  resolved "https://registry.yarnpkg.com/@modyo/cli/-/cli-3.1.18.tgz#3cc04b47458e62f1fe1bd6b336b12c69813cf2fd"
-  integrity sha512-dGyQ8kyAdsl9JrND/2PvG+uoGtz+ktYT7995LuwgZrW/TtksGxm7cK8+akA+k2kQTJS6gabvXGkWLs4COOrv8Q==
+  resolved "https://npm.pkg.github.com/download/@modyo/cli/3.1.18/088c4047ff2e7215f6f0f06bf3a262ee14a3f6a36597c7224001a93750567710#158300cea508ee39c3ca82bc2c73341202d8c331"
+  integrity sha512-1Rj7wD5sLjaIO6LvsrZP6ZdjCKYvz7fD12kEgnhtQRfSF3McdI63k4gLjBmaS3AzbJs6YJ/eLHZp4jOhu7WmTw==
   dependencies:
     "@oclif/command" "^1.6.1"
     "@oclif/config" "^1.15.1"
@@ -1137,15 +1137,15 @@
 
 "@modyo/sdk@^1.0.3":
   version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@modyo/sdk/-/sdk-1.0.3.tgz#dee252762429c1aa5e1f6b47225e959bfb835ab2"
-  integrity sha512-GfeqamGEOyB+Sv8L5TqhxjzsS4JWsUbUvF2gVzs/CDLa+VS+18EE9vK0iAXk36kpdA7s1IZUMHzjZrivlY1sYw==
+  resolved "https://npm.pkg.github.com/download/@modyo/sdk/1.0.3/f3364070ca30c663c70d1a1e7c55be3cf812e1a5ecc14c4dbaec109c25b6ad70#68cc9346df71b888636ecab0d3152c7857c89ad5"
+  integrity sha512-iPDjvLv/gg/zQkL0YN8bfj7GXHCUsMBVorBqVPZp+7+N51Z2nf1baOZsW05rODnLaKCaaQG9eeg2rb1q4DVakQ==
   dependencies:
     axios "^0.19.0"
 
 "@modyo/vue-cli-plugin-connector@~1.4.6":
   version "1.4.6"
-  resolved "https://registry.yarnpkg.com/@modyo/vue-cli-plugin-connector/-/vue-cli-plugin-connector-1.4.6.tgz#77fe66f1da4c739b90d1d433cba016a2151e46e9"
-  integrity sha512-MfuIs/pGGTNkhSTsqLple2xXS3qJ0TqUpLKj0UYThLjyHzFoxYbuyK9kekoX8euWMTcQbEUo3DEEizyCEalVpA==
+  resolved "https://npm.pkg.github.com/download/@modyo/vue-cli-plugin-connector/1.4.6/94da488ff1e3e3e6024283793dfe1f1f680cb2481bb128ffe70e08879ffed0a5#38b31321134f9b62f6a910986bc7ebb392f6e631"
+  integrity sha512-1fqaYIbNpb2i32mwMxPLP5NapZR5AbdzrW1JbkC+kpXPvVdVHFRMG5MY+YxJKWPUeem4fRhl0STsk7RcdAkxjg==
   dependencies:
     "@vue/cli-shared-utils" "^4.3.1"
     dotenv "^8.2.0"
@@ -2518,6 +2518,18 @@ autoprefixer@^9.8.6:
     postcss "^7.0.32"
     postcss-value-parser "^4.1.0"
 
+autoprefixer@~9.0.0:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.0.2.tgz#c41947aa155038b3614414dbc58b4e70908af6e0"
+  integrity sha512-t5PpCq5nCNzgPEzhty83UHYLmteY9FTL3COBfRjL0y4BTDB0OADbHVzG/S7gzqvITSsAZiaJPduoDEv2n68JNQ==
+  dependencies:
+    browserslist "^4.0.1"
+    caniuse-lite "^1.0.30000865"
+    normalize-range "^0.1.2"
+    num2fraction "^1.2.2"
+    postcss "^7.0.2"
+    postcss-value-parser "^3.2.3"
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -2949,7 +2961,7 @@ browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
-browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.8.5:
+browserslist@^4.0.0, browserslist@^4.0.1, browserslist@^4.12.0, browserslist@^4.8.5:
   version "4.14.5"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.14.5.tgz#1c751461a102ddc60e40993639b709be7f2c4015"
   integrity sha512-Z+vsCZIvCBvqLoYkBFTwEYH3v5MCQbsAjp50ERycpOjnPmolg1Gjy4+KaWWpm8QOJt9GHkhdqAl14NpCX73CWA==
@@ -3173,7 +3185,7 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001135:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000865, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001135:
   version "1.0.30001137"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001137.tgz#6f0127b1d3788742561a25af3607a17fc778b803"
   integrity sha512-54xKQZTqZrKVHmVz0+UvdZR6kQc7pJDgfhsMYDG19ID1BWoNnDMFm5Q3uSBSU401pBvKYMsHAt9qhEDcxmk8aw==
@@ -9424,7 +9436,7 @@ postcss-unique-selectors@^4.0.1:
     postcss "^7.0.0"
     uniqs "^2.0.0"
 
-postcss-value-parser@^3.0.0:
+postcss-value-parser@^3.0.0, postcss-value-parser@^3.2.3:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-3.3.1.tgz#9ff822547e2893213cf1c30efa51ac5fd1ba8281"
   integrity sha512-pISE66AbVkp4fDQ7VHBwRNXzAAKJjw4Vw7nWI/+Q3vuly7SNfgYXvm6i5IgFylHGK5sP/xHAbB7N49OS4gWNyQ==
