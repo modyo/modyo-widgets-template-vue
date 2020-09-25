@@ -4,6 +4,7 @@
     "selector-max-id": 1,
     "selector-class-pattern": "^[a-z][a-z0-9]*((-|__|--)?[a-z0-9])*$",
     "selector-no-qualifying-type": [true, {"ignore": ["attribute"]}],
+    "value-keyword-case": "lower",
     "block-opening-brace-space-before": "always",
     "max-empty-lines": 1,
     "rule-empty-line-before": [ "always", {

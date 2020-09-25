@@ -1,8 +1,0 @@
-{
-  "hooks": {
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-    "pre-commit": "validate-branch-name && yarn lint && yarn lint:style",
-    "pre-push": "yarn test:unit",
-    "post-checkout": "validate-branch-name"
-  }
-}
