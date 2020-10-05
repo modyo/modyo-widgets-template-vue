@@ -19,4 +19,4 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.add(faCcVisa, faComment, faHeart);
 
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component('FontAwesomeIcon', FontAwesomeIcon);

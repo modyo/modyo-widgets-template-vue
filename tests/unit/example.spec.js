@@ -6,7 +6,7 @@ import App from '../../src/App.vue';
 const localVue = createLocalVue();
 
 localVue.use(Vuex);
-localVue.component('font-awesome-icon', FontAwesomeIcon);
+localVue.component('FontAwesomeIcon', FontAwesomeIcon);
 
 describe('App.vue', () => {
   let actions;
