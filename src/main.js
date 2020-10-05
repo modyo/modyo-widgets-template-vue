@@ -1,6 +1,5 @@
 /* eslint-disable global-require */
 import Vue from 'vue';
-import VueAxe from 'vue-axe';
 import App from './App.vue';
 import store from './store';
 import i18n from './i18n';
@@ -10,13 +9,14 @@ import './scss/custom.scss';
 
 if (process.env.NODE_ENV === 'development') require('bootstrap');
 
-Vue.config.productionTip = false;
-
 if (process.env.NODE_ENV === 'development') {
+  const VueAxe = require('vue-axe').default;
   Vue.use(VueAxe, {
     clearConsoleOnUpdate: false,
   });
 }
+
+Vue.config.productionTip = false;
 
 new Vue({
   store,
