@@ -13,7 +13,7 @@ name: Build and Publish
 on:
   push:
     branches:
-      - master
+      - master # replace with the name of your production branch
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -47,7 +47,10 @@ jobs:
         MODYO_ACCOUNT_URL: ${{secrets.MODYO_ACCOUNT_URL}}
         MODYO_VERSION: ${{secrets.MODYO_VERSION}}
         MODYO_TOKEN: ${{secrets.MODYO_TOKEN}}
+        # Use the site id option
         MODYO_SITE_ID: ${{secrets.MODYO_SITE_ID}}
+        # or the site host option, but not both
+        MODYO_SITE_HOST: ${{secrets.MODYO_SITE_HOST}}
         MODYO_WIDGET_NAME: ${{secrets.MODYO_WIDGET_NAME}}
     - name: Release Draft
       uses: release-drafter/release-drafter@v5
