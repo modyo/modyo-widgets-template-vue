@@ -5,7 +5,6 @@ const AUTOPREFIXER = require('autoprefixer');
 module.exports = {
   plugins:
   process.env.NODE_ENV === 'production'
-  // eslint-disable-next-line global-require
     ? [AUTOPREFIXER, PURGE_CSS({
       content: ['./public/**/*.html', './src/**/*.vue'],
       defaultExtractor(content) {
