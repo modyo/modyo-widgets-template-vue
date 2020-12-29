@@ -42,6 +42,6 @@ class LiquidParser {
 
 export default new LiquidParser({
   user: {
-    name: 'jorge',
+    name: '',
   },
 });
