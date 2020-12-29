@@ -38,15 +38,4 @@ class LiquidParser {
     return liquidString;
   }
 }
-const LiquidParserInstance = new LiquidParser({
-  site: {
-    name: ' TEST',
-  },
-});
-
-export default {
-  install(Vue) {
-    // eslint-disable-next-line no-param-reassign
-    Vue.prototype.$liquid = LiquidParserInstance;
-  },
-};
+export default LiquidParser;

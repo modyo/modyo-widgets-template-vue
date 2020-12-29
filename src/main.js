@@ -6,7 +6,8 @@ import i18n from './i18n';
 import './vee-validate-config';
 import './vue-fontawesome-config';
 import './scss/custom.scss';
-import LocalLiquid from './local-liquid-config';
+import LiquidPlugin from './vue-liquid-plugin';
+import liquidConfig from './vue-liquid-config';
 
 if (process.env.NODE_ENV === 'development') require('bootstrap');
 
@@ -18,7 +19,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 Vue.config.productionTip = false;
-Vue.use(LocalLiquid);
+Vue.use(LiquidPlugin, liquidConfig);
 new Vue({
   store,
   i18n,
