@@ -3,7 +3,10 @@ let Liquid;
 if (process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line global-require
   Liquid = require('liquidjs');
-  engine = new Liquid.Liquid();
+  engine = new Liquid.Liquid({
+    strictFilters: true,
+    strictVariables: true,
+  });
 }
 class LiquidParser {
   /** context of liquid drops in local */
@@ -23,9 +26,10 @@ class LiquidParser {
    * @param liquidString Target Content Space UID
    * @returns a usable object or string
    */
-  parseLiquid(liquidString) {
+  async parseLiquid(liquidString) {
     try {
-      return engine.parseAndRender(liquidString, this.library);
+      const parsed = await engine.parseAndRender(liquidString, this.library);
+      return parsed;
     } catch (error) {
       return error;
     }

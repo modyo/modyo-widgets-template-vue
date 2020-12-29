@@ -1,5 +1,5 @@
 export default {
   site: {
-    name: 'My Site',
+    name: 'my site',
   },
 };
