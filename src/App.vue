@@ -90,7 +90,6 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import ExampleComponent from './components/ExampleComponent.vue';
-import LocalLiquid from './local-liquid-config';
 
 export default {
   name: 'App',
@@ -107,7 +106,7 @@ export default {
     ...mapState(['posts']),
   },
   async created() {
-    this.siteName = await LocalLiquid.parse('{{site.name}}');
+    this.siteName = await this.$liquid.parse('{{site.name}}');
     this.getPosts();
   },
   methods: {

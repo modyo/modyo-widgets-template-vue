@@ -1,9 +1,8 @@
 let engine;
 let Liquid;
 if (process.env.NODE_ENV !== 'production') {
-  /* eslint-disable */
-  Liquid  = require('liquidjs');
-  /* eslint-enable */
+  // eslint-disable-next-line global-require
+  Liquid = require('liquidjs');
   engine = new Liquid.Liquid();
 }
 class LiquidParser {
@@ -39,9 +38,15 @@ class LiquidParser {
     return liquidString;
   }
 }
-
-export default new LiquidParser({
+const LiquidParserInstance = new LiquidParser({
   site: {
     name: ' TEST',
   },
 });
+
+export default {
+  install(Vue) {
+    // eslint-disable-next-line no-param-reassign
+    Vue.prototype.$liquid = LiquidParserInstance;
+  },
+};
