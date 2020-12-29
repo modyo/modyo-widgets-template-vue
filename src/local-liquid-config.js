@@ -36,12 +36,12 @@ class LiquidParser {
     if (process.env.NODE_ENV !== 'production') {
       return this.parseLiquid(liquidString);
     }
-    return Promise.resolve(liquidString);
+    return liquidString;
   }
 }
 
 export default new LiquidParser({
-  user: {
-    name: '',
+  site: {
+    name: ' TEST',
   },
 });
