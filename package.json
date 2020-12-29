@@ -28,6 +28,7 @@
     "core-js": "^3.6.5",
     "date-fns": "^2.16.1",
     "jquery": "~3.5.1",
+    "liquidjs": "^9.19.0",
     "popper.js": "^1.16.1",
     "vee-validate": "^3.4.0",
     "vue": "^2.6.12",
