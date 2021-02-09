@@ -6,6 +6,7 @@
           <div class="col-md-2" />
           <div class="col-md-8 text-center">
             <h1 class="mb-3">
+              {{ siteName }}
               Build better digital products to unify your customer experiences and accelerate growth.
             </h1>
             <h2 class="h4 mb-4">
@@ -98,13 +99,14 @@ export default {
   data() {
     return {
       year: new Date().getFullYear(),
-      siteName: 'My Site',
+      siteName: '',
     };
   },
   computed: {
     ...mapState(['posts']),
   },
-  created() {
+  async created() {
+    this.siteName = await this.$liquid.parse('{{site.name | replace: "my", "your" | upcase}}');
     this.getPosts();
   },
   methods: {
