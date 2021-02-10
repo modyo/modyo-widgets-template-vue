@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { accountUrl, authPath } from './config/modyo.config';
+
+const accountUrl = 'https://un.modyo.cloud';
+const authPath = '/auth/openidc';
 
 export default axios.create({
   baseURL: `${accountUrl}+${authPath}`,
