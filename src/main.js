@@ -9,9 +9,9 @@ import './scss/custom.scss';
 import LiquidPlugin from './vue-liquid-plugin';
 import liquidConfig from './vue-liquid-config';
 
-if (process.env.NODE_ENV === 'development') require('bootstrap');
-
 if (process.env.NODE_ENV === 'development') {
+  require('bootstrap');
+
   const VueAxe = require('vue-axe').default;
   Vue.use(VueAxe, {
     clearConsoleOnUpdate: false,
