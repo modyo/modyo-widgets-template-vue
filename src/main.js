@@ -3,11 +3,11 @@ import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
 import i18n from './i18n';
+import LiquidPlugin from './vue-liquid-plugin';
+import liquidConfig from './vue-liquid-config';
 import './vee-validate-config';
 import './vue-fontawesome-config';
 import './scss/custom.scss';
-import LiquidPlugin from './vue-liquid-plugin';
-import liquidConfig from './vue-liquid-config';
 
 if (process.env.NODE_ENV === 'development') {
   require('bootstrap');
@@ -19,6 +19,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 Vue.config.productionTip = false;
+
 Vue.use(LiquidPlugin, liquidConfig);
 new Vue({
   store,
