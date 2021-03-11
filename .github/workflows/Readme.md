@@ -38,9 +38,7 @@ jobs:
         # FORTAWESOME_TOKEN: ${{secrets.FORTAWESOME_TOKEN}}
         NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
-    - name: Build Package
-      run: yarn build
-    - name: Push to Modyo Site
+    - name: Build and Push to Modyo Site
       run: yarn modyo-push "$MODYO_WIDGET_NAME"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
@@ -205,11 +203,11 @@ jobs:
 put this in `.github/release-drafter.yml`
 
 ```yml
-name-template: 'v$NEXT_PATCH_VERSION'
-tag-template: '$NEXT_PATCH_VERSION'
+name-template: 'v$RESOLVED_VERSION'
+tag-template: '$RESOLVED_VERSION'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 template: |
-  ## Changes
+  ## What’s Changed
   $CHANGES
 
   ## Contributors
@@ -234,6 +232,17 @@ categories:
     labels:
       - 'docs'
       - 'test'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
 ```
 
 ## PR Labeler
