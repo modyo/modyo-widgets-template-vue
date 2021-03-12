@@ -1,8 +1,8 @@
-name-template: 'v$NEXT_PATCH_VERSION'
-tag-template: '$NEXT_PATCH_VERSION'
+name-template: 'v$RESOLVED_VERSION'
+tag-template: '$RESOLVED_VERSION'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 template: |
-  ## Changes
+  ## What’s Changed
   $CHANGES
 
   ## Contributors
@@ -27,3 +27,14 @@ categories:
     labels:
       - 'docs'
       - 'test'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
