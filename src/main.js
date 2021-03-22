@@ -7,11 +7,10 @@ import LiquidPlugin from './vue-liquid-plugin';
 import liquidConfig from './vue-liquid-config';
 import './vee-validate-config';
 import './vue-fontawesome-config';
+import 'bootstrap';
 import './scss/custom.scss';
 
 if (process.env.NODE_ENV === 'development') {
-  require('bootstrap');
-
   const VueAxe = require('vue-axe').default;
   Vue.use(VueAxe, {
     clearConsoleOnUpdate: false,
