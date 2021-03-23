@@ -4,7 +4,7 @@ import App from './App.vue';
 import store from './store';
 import i18n from './i18n';
 import LiquidPlugin from './vue-liquid-plugin';
-import liquidConfig from './vue-liquid-config';
+import liquidVariables from './liquid-variables';
 import './vee-validate-config';
 import './vue-fontawesome-config';
 import 'bootstrap';
@@ -19,7 +19,8 @@ if (process.env.NODE_ENV === 'development') {
 
 Vue.config.productionTip = false;
 
-Vue.use(LiquidPlugin, liquidConfig);
+Vue.use(LiquidPlugin, liquidVariables);
+
 new Vue({
   store,
   i18n,

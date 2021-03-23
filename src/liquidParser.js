@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
     strictFilters: true,
     strictVariables: true,
   });
+  engine.registerFilter('limit', async (initial, args) => { const resp = await initial.getTop(args); return resp; });
 }
 class LiquidParser {
   /** context of liquid drops in local */
@@ -26,9 +27,23 @@ class LiquidParser {
    * @param liquidString Target Content Space UID
    * @returns a usable object or string
    */
-  async parseLiquid(liquidString) {
+  parseLiquid(liquidString) {
     try {
-      const parsed = await engine.parseAndRender(liquidString, this.library);
+      const parsed = engine.parseAndRender(liquidString, this.library);
+      return parsed;
+    } catch (error) {
+      return error;
+    }
+  }
+
+  /**
+   * Parse a liquid string
+   * @param liquidString Target Content Space UID
+   * @returns a usable object or string
+   */
+  parseLiquidSync(liquidString) {
+    try {
+      const parsed = engine.parseAndRenderSync(liquidString, this.library);
       return parsed;
     } catch (error) {
       return error;
@@ -36,6 +51,13 @@ class LiquidParser {
   }
 
   parse(liquidString) {
+    if (process.env.NODE_ENV !== 'production') {
+      return this.parseLiquidSync(liquidString);
+    }
+    return liquidString;
+  }
+
+  parseAsync(liquidString) {
     if (process.env.NODE_ENV !== 'production') {
       return this.parseLiquid(liquidString);
     }
