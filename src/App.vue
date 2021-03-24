@@ -105,8 +105,8 @@ export default {
   computed: {
     ...mapState(['posts']),
   },
-  async created() {
-    this.siteName = await this.$liquid.parse('{{site.name | replace: "my", "your" | upcase}}');
+  created() {
+    this.siteName = this.$liquid.parse('{{site.name | replace: "my", "your" | upcase}}');
     this.getPosts();
   },
   methods: {
