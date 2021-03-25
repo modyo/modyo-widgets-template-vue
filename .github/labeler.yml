@@ -1,0 +1,66 @@
+version: v1
+
+labels:
+  - label: "chore"
+    matcher:
+      title: "^chore: .*"
+      branch: "chore/.*"
+      commits: "^chore.*"
+
+  - label: "ci"
+    matcher:
+      title: "^ci: .*"
+      branch: "ci/.*"
+      commits: "^ci.*"
+
+  - label: "docs"
+    matcher:
+      title: "^docs: .*"
+      branch: "docs/.*"
+      commits: "^docs.*"
+
+  - label: "feat"
+    matcher:
+      title: "^feat: .*"
+      branch: "feat/.*"
+      commits: "^feat.*"
+
+  - label: "fix"
+    matcher:
+      title: "^fix: .*"
+      branch: "fix/.*"
+      commits: "^fix.*"
+
+  - label: "refactor"
+    matcher:
+      title: "^refactor: .*"
+      branch: "refactor/.*"
+      commits: "^refactor.*"
+
+  - label: "style"
+    matcher:
+      title: "^style: .*"
+      branch: "style/.*"
+      commits: "^style.*"
+
+  - label: "test"
+    matcher:
+      title: "^test: .*"
+      branch: "test/.*"
+      commits: "^test.*"
+
+checks:
+  - context: "Semantic Pull Request"
+    url: "https://github.com/fuxingloh/multi-labeler/blob/main/.github/labeler.yml"
+    description:
+      success: Ready for review & merge.
+      failure: Missing semantic label for merge.
+    labels:
+      any:
+        - ci
+        - docs
+        - feat
+        - fix
+        - refactor
+        - style
+        - test
