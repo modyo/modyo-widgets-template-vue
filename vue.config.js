@@ -13,8 +13,8 @@ module.exports = {
   },
   pluginOptions: {
     i18n: {
-      locale: 'es-CL',
-      fallbackLocale: 'es-CL',
+      locale: 'es',
+      fallbackLocale: 'es',
       localeDir: 'locales',
       enableInSFC: false,
     },

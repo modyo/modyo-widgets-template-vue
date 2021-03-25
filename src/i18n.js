@@ -6,13 +6,17 @@ import VueI18n from 'vue-i18n';
 // The default language is spanish.
 // If you add another language to your project be sure to:
 // STEP 1: import the validations messages from vee-validate.
-import esCL from 'vee-validate/dist/locale/es.json';
-import enUS from 'vee-validate/dist/locale/en.json';
+import es from 'vee-validate/dist/locale/es.json';
+import en from 'vee-validate/dist/locale/en.json';
+
+import LiquidParser from './liquid/liquidParser';
+import liquidVariables from './liquid/local-liquid-variables';
 
 Vue.use(VueI18n);
 
-// Get page language from modyo, change to your needs
-const LANG = window?.liquid?.lang ?? 'es-CL';
+// Get page language from modyo site using liquid
+const liquid = new LiquidParser(liquidVariables);
+const LANG = liquid.parse('{{site.language}}');
 
 function loadLocaleMessages() {
   const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i);
@@ -27,14 +31,14 @@ function loadLocaleMessages() {
 
   // STEP 2: add the validation messages to the i18n plugin.
   // Copy the code below for every new language you add.
-  messages['es-CL'] = {
-    ...messages['es-CL'],
-    validations: esCL.messages,
+  messages.es = {
+    ...messages.es,
+    validations: es.messages,
   };
 
-  messages['en-US'] = {
-    ...messages['en-US'],
-    validations: enUS.messages,
+  messages.en = {
+    ...messages.en,
+    validations: en.messages,
   };
 
   return messages;
@@ -42,6 +46,6 @@ function loadLocaleMessages() {
 
 export default new VueI18n({
   locale: LANG,
-  fallbackLocale: 'es-CL',
+  fallbackLocale: 'es',
   messages: loadLocaleMessages(),
 });
