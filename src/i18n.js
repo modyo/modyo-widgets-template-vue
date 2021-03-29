@@ -9,14 +9,12 @@ import VueI18n from 'vue-i18n';
 import es from 'vee-validate/dist/locale/es.json';
 import en from 'vee-validate/dist/locale/en.json';
 
-import LiquidParser from './liquid/liquidParser';
-import liquidVariables from './liquid/local-liquid-variables';
+import liquidParser from './liquid/liquidParser';
 
 Vue.use(VueI18n);
 
 // Get page language from modyo site using liquid
-const liquid = new LiquidParser(liquidVariables);
-const LANG = liquid.parse('{{site.language}}');
+const LANG = liquidParser.parse('{{site.language}}');
 
 function loadLocaleMessages() {
   const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i);

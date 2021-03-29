@@ -1,15 +1,17 @@
+import localLiquidVariables from './local-liquid-variables';
+
 let engine;
-let Liquid;
-if (process.env.NODE_ENV !== 'production') {
-  // eslint-disable-next-line global-require
-  Liquid = require('liquidjs');
+
+const Liquid = process.env.NODE_ENV !== 'production' ? require('liquidjs') : null;
+
+if (Liquid) {
   engine = new Liquid.Liquid({
     strictFilters: true,
     strictVariables: true,
   });
-  engine.registerFilter('limit', async (initial, args) => { const resp = await initial.getTop(args); return resp; });
 }
-class LiquidParser {
+
+class LiquidParserClass {
   /** context of liquid drops in local */
   library= {};
 
@@ -27,9 +29,9 @@ class LiquidParser {
    * @param liquidString Target Content Space UID
    * @returns a usable object or string
    */
-  parseLiquid(liquidString) {
+  async parseLiquidAsync(liquidString) {
     try {
-      const parsed = engine.parseAndRender(liquidString, this.library);
+      const parsed = await engine.parseAndRender(liquidString, this.library);
       return parsed;
     } catch (error) {
       return error;
@@ -41,7 +43,7 @@ class LiquidParser {
    * @param liquidString Target Content Space UID
    * @returns a usable object or string
    */
-  parseLiquidSync(liquidString) {
+  parseLiquid(liquidString) {
     try {
       const parsed = engine.parseAndRenderSync(liquidString, this.library);
       return parsed;
@@ -52,16 +54,18 @@ class LiquidParser {
 
   parse(liquidString) {
     if (process.env.NODE_ENV !== 'production') {
-      return this.parseLiquidSync(liquidString);
+      return this.parseLiquid(liquidString);
     }
     return liquidString;
   }
 
   parseAsync(liquidString) {
     if (process.env.NODE_ENV !== 'production') {
-      return this.parseLiquid(liquidString);
+      return this.parseLiquidAsync(liquidString);
     }
     return liquidString;
   }
 }
-export default LiquidParser;
+const liquidParser = new LiquidParserClass(localLiquidVariables);
+
+export default liquidParser;

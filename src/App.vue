@@ -90,6 +90,7 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import ExampleComponent from './components/ExampleComponent.vue';
+import liquidParser from './liquid/liquidParser';
 
 export default {
   name: 'App',
@@ -99,14 +100,13 @@ export default {
   data() {
     return {
       year: new Date().getFullYear(),
-      siteName: '',
+      siteName: liquidParser.parse('{{site.name | replace: "my", "your" | upcase}}'),
     };
   },
   computed: {
     ...mapState(['posts']),
   },
   created() {
-    this.siteName = this.$liquid.parse('{{site.name | replace: "my", "your" | upcase}}');
     this.getPosts();
   },
   methods: {
