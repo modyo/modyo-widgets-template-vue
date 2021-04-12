@@ -6,7 +6,7 @@ const type = 'posts';
 const content = ModyoSdk.getContentType(space, type);
 const privateContent = ModyoSdk.getContentType(space, type, false);
 
-export default {
+const PostRepository = {
   get() {
     return content.getEntries();
   },
@@ -25,3 +25,5 @@ export default {
     return privateContent.getEntry(id);
   },
 };
+
+export default PostRepository;

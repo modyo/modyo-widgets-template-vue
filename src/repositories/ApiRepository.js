@@ -1,7 +1,9 @@
 import ApiClient from './clients/ApiClient';
 
-export default {
+const ApiRepository = {
   summary() {
     return ApiClient.get('summary');
   },
 };
+
+export default ApiRepository;
