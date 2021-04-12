@@ -1,6 +1,7 @@
 import axios from 'axios';
-import ModyoAuth from './ModyoAuthClient';
-import { externalApiBase } from './config/modyo.config';
+import ModyoProfileClient from './ModyoProfileClient';
+
+const externalApiBase = 'https://herokuapp.com/api/v1';
 
 const apiClient = axios.create({
   baseURL: externalApiBase,
@@ -8,9 +9,9 @@ const apiClient = axios.create({
 
 const injectToken = async (config) => {
   try {
-    const response = await ModyoAuth.get('access_token');
+    const response = await ModyoProfileClient.get('me');
     const newConfig = config;
-    newConfig.headers.authorization = `Bearer ${response.data.access_token}`;
+    newConfig.headers.authorization = `Bearer ${response.data.delegated_token.access_token}`;
     return newConfig;
   } catch (error) {
     throw new Error('Unauthorized');

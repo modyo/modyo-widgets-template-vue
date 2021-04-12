@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { accountUrl, sitePath } from '../repositories/clients/config/modyo.config';
+import liquidParser from '../liquid/liquidParser';
 
 export default {
   name: 'ExampleComponent',
@@ -45,12 +45,12 @@ export default {
     },
   },
   data: () => ({
-    urlBase: accountUrl,
-    path: sitePath,
+    siteUrl: liquidParser.parse('{{site.url}}'),
+    contentViewPAth: 'contenido',
   }),
   computed: {
     linkFull() {
-      return `${this.urlBase}/${this.sitePath}/${this.slug}`;
+      return `${this.siteUrl}/${this.contentViewPAth}/${this.slug}`;
     },
   },
 };
