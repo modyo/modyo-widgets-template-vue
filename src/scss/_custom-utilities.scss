@@ -1,0 +1,45 @@
+// ADD, EXTEND, MODIFY or RENAME UTILITY CLASSES USING THE UTILITIES API
+// See oficial documentation here: https://getbootstrap.com/docs/5.0/utilities/api/
+
+// ADD
+
+// $utilities: map-merge(
+//   $utilities,
+//   (
+//     "cursor": (
+//       property: cursor,
+//       class: cursor,
+//       responsive: true,
+//       values: auto pointer grab,
+//     )
+//   )
+// );
+
+// MODIFY
+
+// $utilities: map-merge(
+//   $utilities,
+//   (
+//     "background-color": map-merge(
+//       map-get($utilities, "background-color"),
+//       (
+//         values: map-merge(
+//           map-get(map-get($utilities, "background-color"), "values"),
+//           (black: $black),
+//         ),
+//       ),
+//     ),
+//   )
+// );
+
+// RENAME
+
+// $utilities: map-merge(
+//   $utilities,
+//   (
+//     "margin-start": map-merge(
+//       map-get($utilities, "margin-start"),
+//       ( class: ml ),
+//     ),
+//   )
+// );

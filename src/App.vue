@@ -18,7 +18,7 @@
               class="btn btn-primary btn-lg"
               href="https://www.modyo.com">Go to Modyo</a>
             <a
-              class="btn btn-outline-primary ml-2 btn-lg"
+              class="btn btn-outline-primary ms-2 btn-lg"
               href="https://docs.modyo.com">Read the docs</a>
           </div>
         </div>
@@ -76,7 +76,7 @@
         <div class="container">
           <div class="mt-2 pt-2 border-top d-flex">
             <span>{{ siteName }} &copy;{{ year }}</span>
-            <span class="ml-auto">Made with <font-awesome-icon
+            <span class="ms-auto">Made with <font-awesome-icon
               :icon="['fas', 'heart']"
               color="red"
               class="mx-2" /> in <a href="https://www.modyo.com">Modyo CLI</a></span>
