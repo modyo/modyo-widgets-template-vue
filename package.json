@@ -37,7 +37,7 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@modyo/cli": "^3.1.18",
+    "@modyo/cli": "^3.1.21",
     "@modyo/vue-cli-plugin-connector": "~1.4.6",
     "@vue/cli-plugin-babel": "~4.5.12",
     "@vue/cli-plugin-eslint": "~4.5.12",
