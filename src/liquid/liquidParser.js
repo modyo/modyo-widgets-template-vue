@@ -56,14 +56,14 @@ class LiquidParserClass {
     if (process.env.NODE_ENV !== 'production') {
       return this.parseLiquid(liquidString);
     }
-    return `{%endraw%}${liquidString}{%raw%}`;
+    return `${liquidString}`;
   }
 
   parseAsync(liquidString) {
     if (process.env.NODE_ENV !== 'production') {
       return this.parseLiquidAsync(liquidString);
     }
-    return `{%endraw%}${liquidString}{%raw%}`;
+    return `${liquidString}`;
   }
 }
 const liquidParser = new LiquidParserClass(localLiquidVariables);
