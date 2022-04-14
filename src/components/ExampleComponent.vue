@@ -46,11 +46,11 @@ export default {
   },
   data: () => ({
     siteUrl: liquidParser.parse('{{site.url}}'),
-    contentViewPAth: 'contenido',
+    contentViewPath: 'contenido',
   }),
   computed: {
     linkFull() {
-      return `${this.siteUrl}/${this.contentViewPAth}/${this.slug}`;
+      return `${this.siteUrl}/${this.contentViewPath}/${this.slug}`;
     },
   },
 };

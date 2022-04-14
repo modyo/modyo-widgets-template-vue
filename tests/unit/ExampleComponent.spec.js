@@ -21,7 +21,7 @@ describe('ExampleComponent', () => {
     expect(wrapper.find('img').attributes().alt).toBe(imageAlt);
     expect(wrapper.find('h3').text()).toBe(title);
     expect(wrapper.find('p').text()).toBe(description);
-    expect(wrapper.find('.btn').attributes().href).toBe(`${wrapper.vm.urlBase}/${wrapper.vm.sitePath}/${slug}`);
+    expect(wrapper.find('.btn').attributes().href).toBe(`${wrapper.vm.siteUrl}/${wrapper.vm.contentViewPath}/${slug}`);
   });
 
   test('imageAlt has a default \'imagen\' value', () => {
