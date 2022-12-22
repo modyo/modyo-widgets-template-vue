@@ -7387,10 +7387,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.1.6.tgz"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-liquidjs@^9.23.3:
-  version "9.23.3"
-  resolved "https://registry.npmjs.org/liquidjs/-/liquidjs-9.23.3.tgz"
-  integrity sha512-YYcWER689qq4JohFjYnXl9vElm8QA46bQmvFCfsfqgoW2kdE8FyOwDUldGnbMgcuyS/HIi+vOQln9E+vmLvK9g==
+liquidjs@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-10.0.0.tgz#282579e9f90f4bfd92ef7d09ad4f5aac3ec9fd61"
+  integrity sha512-uY3fKqBSRmnat0wB5qWk0W5N5iT78OUhuIXNRiMfhYQ3p35al9mEWKQ68/Z+WD54V2upaxEM8nHaZ6o1B8WCMA==
 
 load-json-file@^4.0.0:
   version "4.0.0"
