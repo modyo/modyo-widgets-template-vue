@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/ExampleComponent.spec.js">
-    <testCase name="ExampleComponent runs as expected" duration="18">
+    <testCase name="ExampleComponent runs as expected" duration="17">
       <failure message="Error: expect(received).toBe(expected) // Object.is equality"><![CDATA[Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: "undefined/undefined/slug"
@@ -19,16 +19,15 @@ Received: "https://fed-team.modyo.cloud/test/slug"
     at runAndTransformResultsToJestFormat (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
     at jestAdapter (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
     at runTestInternal (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/runTest.js:475:34)
-    at Object.worker (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
+    at runTest (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/runTest.js:475:34)]]></failure>
     </testCase>
     <testCase name="ExampleComponent imageAlt has a default &apos;imagen&apos; value" duration="3"/>
   </file>
   <file path="/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/liquidParser.spec.js">
-    <testCase name="LiquidParser if no liqiud string is provided throws error" duration="13"/>
+    <testCase name="LiquidParser if no liqiud string is provided throws error" duration="25"/>
     <testCase name="LiquidParser if no liqiud string is provided throws error on asyncRequest" duration="1"/>
     <testCase name="LiquidParser return var on asyncRequest" duration="2"/>
-    <testCase name="LiquidParser return var on parse" duration="0"/>
+    <testCase name="LiquidParser return var on parse" duration="1"/>
     <testCase name="test on production return string on production" duration="0"/>
     <testCase name="test on production return string on production on asyncRequest" duration="0"/>
   </file>
