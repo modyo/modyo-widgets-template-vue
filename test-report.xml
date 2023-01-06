@@ -1,32 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/ExampleComponent.spec.js">
-    <testCase name="ExampleComponent runs as expected" duration="17">
-      <failure message="Error: expect(received).toBe(expected) // Object.is equality"><![CDATA[Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: "undefined/undefined/slug"
-Received: "https://fed-team.modyo.cloud/test/slug"
-    at Object.<anonymous> (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/ExampleComponent.spec.js:24:52)
-    at Promise.then.completed (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/utils.js:391:28)
-    at new Promise (<anonymous>)
-    at callAsyncCircusFn (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/utils.js:316:10)
-    at _callCircusTest (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/run.js:218:40)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-    at _runTest (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/run.js:155:3)
-    at _runTestsForDescribeBlock (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/run.js:66:9)
-    at _runTestsForDescribeBlock (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/run.js:60:9)
-    at run (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/run.js:25:3)
-    at runAndTransformResultsToJestFormat (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-    at jestAdapter (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-    at runTestInternal (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/runTest.js:475:34)]]></failure>
-    </testCase>
+    <testCase name="ExampleComponent runs as expected" duration="15"/>
     <testCase name="ExampleComponent imageAlt has a default &apos;imagen&apos; value" duration="3"/>
   </file>
   <file path="/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/liquidParser.spec.js">
-    <testCase name="LiquidParser if no liqiud string is provided throws error" duration="25"/>
+    <testCase name="LiquidParser if no liqiud string is provided throws error" duration="18"/>
     <testCase name="LiquidParser if no liqiud string is provided throws error on asyncRequest" duration="1"/>
-    <testCase name="LiquidParser return var on asyncRequest" duration="2"/>
+    <testCase name="LiquidParser return var on asyncRequest" duration="1"/>
     <testCase name="LiquidParser return var on parse" duration="1"/>
     <testCase name="test on production return string on production" duration="0"/>
     <testCase name="test on production return string on production on asyncRequest" duration="0"/>
