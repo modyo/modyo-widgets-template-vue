@@ -16,16 +16,14 @@ describe('LiquidParser', () => {
     const liquidText = '{{test';
     expect(() => { liquidParser.parse(liquidText); }).toThrow(Error);
   });
-  test('if no liqiud string is provided throws error on asyncRequest', async (done) => {
+  test('if no liqiud string is provided throws error on asyncRequest', async () => {
     const liquidText = '{{test';
     expect(liquidParser.parseAsync(liquidText)).rejects.toThrow(Error);
-    done();
   });
-  test('return var on asyncRequest', async (done) => {
+  test('return var on asyncRequest', async () => {
     const liquidText = '{{name}}';
     const liquidResponse = await liquidParser.parseAsync(liquidText);
     expect(liquidResponse).toBe('modyo');
-    done();
   });
   test('return var on parse', (done) => {
     const liquidText = '{{name}}';
