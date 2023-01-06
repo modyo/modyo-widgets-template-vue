@@ -2,6 +2,17 @@
   "name": "@modyo/modyo-widgets-template-vue",
   "version": "1.0.0",
   "private": true,
+  "bugs": "https://github.com/modyo/modyo-widgets-template-vue/issues",
+  "contributors": [
+    "Giorgiosaud <jsaud@modyo.com>",
+    "Abe <agonzalez@modyo.com>"
+  ],
+  "homepage": "https://github.com/modyo/modyo-widgets-template-vue",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:modyo/modyo-widgets-template-vue"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -61,15 +72,10 @@
     "vue-axe": "^2.4.4",
     "vue-template-compiler": "^2.7.14"
   },
-  "bugs": "https://github.com/modyo/modyo-widgets-template-vue/issues",
-  "contributors": [
-    "Giorgiosaud <jsaud@modyo.com>",
-    "Abe <agonzalez@modyo.com>"
-  ],
-  "homepage": "https://github.com/modyo/modyo-widgets-template-vue",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:modyo/modyo-widgets-template-vue"
+  
+  "jestSonar": {
+    "reportPath": "coverage",
+    "reportFile": "sonar-cloud-reporter.xml",
+    "indent": 4
   }
 }
