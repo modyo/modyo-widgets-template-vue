@@ -1,43 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/liquidParser.spec.js">
-    <testCase name="LiquidParser if no liqiud string is provided throws error" duration="15"/>
-    <testCase name="LiquidParser if no liqiud string is provided throws error on asyncRequest" duration="2">
-      <failure message="Error: Test functions cannot both take a &apos;done&apos; callback and return something. Either use a &apos;done&apos; callback, or return a promise."><![CDATA[Error: Test functions cannot both take a 'done' callback and return something. Either use a 'done' callback, or return a promise.
-Returned value: Promise {}
-    at /Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/liquidParser.spec.js:19:3
-    at _dispatchDescribe (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/index.js:98:26)
-    at describe (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/index.js:60:5)
-    at Object.<anonymous> (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/liquidParser.spec.js:14:1)
-    at Runtime._execModule (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runtime/build/index.js:1646:24)
-    at Runtime._loadModule (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runtime/build/index.js:1185:12)
-    at Runtime.requireModule (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runtime/build/index.js:1009:12)
-    at jestAdapter (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:13)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-    at runTestInternal (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/runTest.js:475:34)
-    at Object.worker (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
-    </testCase>
-    <testCase name="LiquidParser return var on asyncRequest" duration="2">
-      <failure message="Error: Test functions cannot both take a &apos;done&apos; callback and return something. Either use a &apos;done&apos; callback, or return a promise."><![CDATA[Error: Test functions cannot both take a 'done' callback and return something. Either use a 'done' callback, or return a promise.
-Returned value: Promise {}
-    at /Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/liquidParser.spec.js:24:3
-    at _dispatchDescribe (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/index.js:98:26)
-    at describe (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/index.js:60:5)
-    at Object.<anonymous> (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/liquidParser.spec.js:14:1)
-    at Runtime._execModule (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runtime/build/index.js:1646:24)
-    at Runtime._loadModule (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runtime/build/index.js:1185:12)
-    at Runtime.requireModule (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runtime/build/index.js:1009:12)
-    at jestAdapter (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:13)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-    at runTestInternal (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/runTest.js:475:34)
-    at Object.worker (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
-    </testCase>
-    <testCase name="LiquidParser return var on parse" duration="0"/>
-    <testCase name="test on production return string on production" duration="0"/>
-    <testCase name="test on production return string on production on asyncRequest" duration="0"/>
-  </file>
   <file path="/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/ExampleComponent.spec.js">
     <testCase name="ExampleComponent runs as expected" duration="18">
       <failure message="Error: expect(received).toBe(expected) // Object.is equality"><![CDATA[Error: expect(received).toBe(expected) // Object.is equality
@@ -61,5 +23,13 @@ Received: "https://fed-team.modyo.cloud/test/slug"
     at Object.worker (/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
     </testCase>
     <testCase name="ExampleComponent imageAlt has a default &apos;imagen&apos; value" duration="3"/>
+  </file>
+  <file path="/Users/giorgiosaud/Projects/Modyo/modyo-widgets-template-vue/tests/unit/liquidParser.spec.js">
+    <testCase name="LiquidParser if no liqiud string is provided throws error" duration="13"/>
+    <testCase name="LiquidParser if no liqiud string is provided throws error on asyncRequest" duration="1"/>
+    <testCase name="LiquidParser return var on asyncRequest" duration="2"/>
+    <testCase name="LiquidParser return var on parse" duration="0"/>
+    <testCase name="test on production return string on production" duration="0"/>
+    <testCase name="test on production return string on production on asyncRequest" duration="0"/>
   </file>
 </testExecutions>

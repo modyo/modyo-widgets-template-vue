@@ -43,15 +43,12 @@ export default {
     },
   },
   data: () => ({
-    urlBase: '',
+    urlBase: liquidParser.parse('{{site.url}}'),
   }),
   computed: {
     linkFull() {
       return `${this.urlBase}/${this.slug}`;
     },
-  },
-  created() {
-    this.urlBase = liquidParser.parse('{{site.url}}');
   },
 };
 </script>
