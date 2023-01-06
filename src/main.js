@@ -1,24 +1,26 @@
-/* eslint-disable global-require */
-import Vue from 'vue';
-import App from './App.vue';
-import store from './store';
-import i18n from './i18n';
+import Vue from 'vue'
+import App from './App.vue'
+import { createPinia, PiniaVuePlugin } from 'pinia'
+import {
+  i18n,
+  // , loadLanguageAsync
+} from './i18n';
 import './vee-validate-config';
-import './vue-fontawesome-config';
 import 'bootstrap';
-import './scss/custom.scss';
+Vue.use(PiniaVuePlugin)
+const pinia = createPinia()
+const VueAxe = process.env.NODE_ENV !== 'production' ? require('vue-axe').default : null;
 
-if (process.env.NODE_ENV === 'development') {
-  const VueAxe = require('vue-axe').default;
+Vue.config.productionTip = false
+if (VueAxe) {
   Vue.use(VueAxe, {
-    clearConsoleOnUpdate: false,
+    allowConsoleClears: false,
   });
 }
 
-Vue.config.productionTip = false;
-
 new Vue({
-  store,
+  render: h => h(App),
+  pinia,
   i18n,
-  render: (h) => h(App),
-}).$mount('#my-widget');
+}).$mount('#app')
+

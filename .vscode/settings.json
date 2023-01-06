@@ -1,0 +1,33 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "git.autofetch": true,
+    "window.zoomLevel": 1,
+    "npm.packageManager": "pnpm",
+    "stylelint.packageManager": "pnpm",
+    "editor.codeActionsOnSave": {
+        
+        "source.fixAll": true
+    },
+    "stylelint.snippet": [
+        "css",
+        "less",
+        "postcss",
+        "vue",
+        "scss"
+    ],
+    "stylelint.validate": [
+        "css",
+        "less",
+        "postcss",
+        "vue",
+        "scss"
+    ],
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    },
+    "editor.accessibilitySupport": "off",
+    "eslint.alwaysShowStatus": true,
+
+    
+
+}

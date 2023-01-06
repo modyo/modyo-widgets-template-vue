@@ -1,3 +1,8 @@
 {
-  "message": "hello i18n !!"
+  "Pathnew":"PathnewPathnewPathnew ES",
+  "Path":"PathnewPathnewPathnewPathnewPathnewPathne ES",
+  "message": "hola i18n !!",
+  "salutation": "hola podemos obtener variables como user.name y site.url '{0}' desde liquid interpolandolas en local ' definiendolas en el archivo 'vue-liquid-config.js' {1}",
+  "resume": "Si deseas consumir la api porfavor usa nuestro SDK de JS",
+  "footer": "en <a href=\"https://www.modyo.com\">Modyo CLI</a>"
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/giorgiosaud/Projects/Modyo/base/tests/unit/example.spec.js">
+  </file>
+  <file path="/Users/giorgiosaud/Projects/Modyo/base/tests/unit/ExampleComponent.spec.js">
+    <testCase name="ExampleComponent runs as expected" duration="21">
+      <failure message="Error: expect(received).toBe(expected) // Object.is equality"><![CDATA[Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: "undefined/undefined/slug"
+Received: "https://fed-team.modyo.cloud/test/slug"
+    at Object.<anonymous> (/Users/giorgiosaud/Projects/Modyo/base/tests/unit/ExampleComponent.spec.js:24:52)
+    at Promise.then.completed (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-circus/build/run.js:60:9)
+    at run (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/giorgiosaud/Projects/Modyo/base/node_modules/jest-runner/build/testWorker.js:133:12)]]></failure>
+    </testCase>
+    <testCase name="ExampleComponent imageAlt has a default &apos;imagen&apos; value" duration="3"/>
+  </file>
+</testExecutions>
