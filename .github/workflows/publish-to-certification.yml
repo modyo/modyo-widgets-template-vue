@@ -1,22 +1,21 @@
 name: Publish to Certification
-on: 
-  push: 
+on:
+  push:
     branches:
-      - develop
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps: 
-    - uses: actions/checkout@v2
-    - name: setup node.js v14
-      uses: actions/setup-node@v2
-      with: 
-          node-version: '14.x'
-          cache: npm
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@modyo'
+    steps:
+    - uses: actions/checkout@v3
+    - name: setup node.js v16
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        registry-url: https://npm.pkg.github.com/
+        cache: npm
     - name: install dependencies
-      run: npm install
+      run: npm ci
       env:
         NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
@@ -24,10 +23,10 @@ jobs:
       run: |
         MODYO_WIDGET_NAME=$(echo $GITHUB_REPOSITORY| sed -e 's/modyo\///')
         echo $MODYO_WIDGET_NAME
-        npm run modyo-push "$MODYO_WIDGET_NAME"
+        npm run modyo-push "$MODYO_WIDGET_NAME" -- --publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
-        MODYO_ACCOUNT_URL: ${{secrets.BASE_URL_CERTIFICATION}}
+        MODYO_ACCOUNT_URL: ${{secrets.BASE_URL}}
         MODYO_VERSION: ${{secrets.VERSION}}
-        MODYO_TOKEN: ${{secrets.TOKEN_CERTIFICATION}}
-        MODYO_SITE_ID: ${{secrets.SITE_ID_PRODUCTION}}
+        MODYO_TOKEN: ${{secrets.TOKEN}}
+        MODYO_SITE_ID: ${{secrets.SITE_ID_CERTIFICATION}}
