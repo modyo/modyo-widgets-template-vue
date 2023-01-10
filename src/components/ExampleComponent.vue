@@ -2,16 +2,19 @@
   <div class="col-md-4 text-center">
     <img
       :src="image"
-      :alt="imageAlt">
+      :alt="imageAlt"
+    >
     <h3 class="h4 mt-3">
       {{ title }}
     </h3>
     <p
       class="text-muted"
-      v-html="description" />
+      v-html="description"
+    />
     <a
       class="btn btn-outline-primary"
-      :href="linkFull">Learn more</a>
+      :href="linkFull"
+    >Learn more</a>
   </div>
 </template>
 

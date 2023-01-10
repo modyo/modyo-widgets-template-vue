@@ -1,7 +1,8 @@
 <template>
   <div
     id="app"
-    class="slkdm">
+    class="slkdm"
+  >
     <div class="pt-5">
       <div class="container">
         <div class="row">
@@ -10,7 +11,8 @@
             <figure v-html="imagen" />
             <h1
               v-if="_i18n.asyncLoading"
-              class="mb-3">
+              class="mb-3"
+            >
               {{ $t('salutation', [siteName, basePath]) }}
               {{ $t('Path') }}
               {{ $t('Pathnew') }}
@@ -29,7 +31,8 @@
             </h2>
             <a
               class="btn btn-outline-primary"
-              href="https://sites.google.com/modyo.com/services/nuestra-area/FED">Our WIKI</a>
+              href="https://sites.google.com/modyo.com/services/nuestra-area/FED"
+            >Our WIKI</a>
           </div>
         </div>
       </div>
@@ -43,12 +46,14 @@
               <example-component
                 v-for="post in posts"
                 :key="post.id"
-                v-bind="post" />
+                v-bind="post"
+              />
               <button
                 type="button"
                 class="btn btn-primary my-3"
                 data-toggle="modal"
-                data-target="#exampleModal">
+                data-target="#exampleModal"
+              >
                 {{ $t('launch-demo-modal') }}
               </button>
             </div>
@@ -63,22 +68,26 @@
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+        aria-hidden="true"
+      >
         <div
           class="modal-dialog"
-          role="document">
+          role="document"
+        >
           <div class="modal-content">
             <div class="modal-header">
               <h5
                 id="exampleModalLabel"
-                class="modal-title">
+                class="modal-title"
+              >
                 Modal title
               </h5>
               <button
                 type="button"
                 class="close"
                 data-dismiss="modal"
-                aria-label="Close">
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -89,12 +98,14 @@
               <button
                 type="button"
                 class="btn btn-secondary"
-                data-dismiss="modal">
+                data-dismiss="modal"
+              >
                 Close
               </button>
               <button
                 type="button"
-                class="btn btn-primary">
+                class="btn btn-primary"
+              >
                 Save changes
               </button>
             </div>
@@ -105,16 +116,19 @@
     <div
       id="footer"
       class="py-5 mt-4"
-      role="contentinfo">
+      role="contentinfo"
+    >
       <div class="container">
         <div class="mt-2 pt-2 border-top d-flex">
           <span>{{ siteName }} <span
             role="img"
-            aria-label="copy Rights">©</span>Modyo {{ year }}</span>
+            aria-label="copy Rights"
+          >©</span>Modyo {{ year }}</span>
           <span class="ml-auto">Made with <font-awesome-icon
             :icon="['fas', 'heart']"
             color="red"
-            class="mx-2" /> {{ $t('footer') }}</span>
+            class="mx-2"
+          /> {{ $t('footer') }}</span>
         </div>
       </div>
     </div>
