@@ -1,0 +1,9 @@
+{
+  "Pathnew": "PathnewPathnewPathnew",
+  "Path": "PathnewPathnewPathnewPathnewPathnewPathnew",
+  "message": "hello i18n !!",
+  "salutation": "Hello we can get variables like user.name and site.url '{0}' from liquid parsing a local values in local development ' defined in  'vue-liquid-config.js' File {1}",
+  "resume": "If you like to consume content please use SDK or JS API",
+  "footer": "in <a href=\"https://www.modyo.com\">Modyo CLI</a>",
+  "launch-demo-modal": "Launch demo modal"
+}
