@@ -3,7 +3,7 @@
 to initialize the repo you must run:
 
 ```ssh
-modyo-cli get modyoservices-widgets-template-vue "WIDGET_NAME" 
+modyo-cli get modyo-widgets-template-vue "WIDGET_NAME" 
 ```
 
 ## Widget Name
