@@ -16,8 +16,9 @@ import {
   min_value,
   max_value,
 } from 'vee-validate/dist/rules';
+// replace with 18n-with-config-space if you want to dinamically config the widget from locales
 
-import i18n from './i18n';
+import { i18n } from './i18n';
 
 configure({
   defaultMessage: (_, values) => i18n.t(`validations.${values._rule_}`, values),

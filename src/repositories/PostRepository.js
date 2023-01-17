@@ -2,11 +2,10 @@ import ModyoSdk from './clients/ModyoClient';
 
 const space = 'testing';
 const type = 'posts';
-
 const content = ModyoSdk.getContentType(space, type);
 const privateContent = ModyoSdk.getContentType(space, type, false);
 
-const PostRepository = {
+export default {
   get() {
     return content.getEntries();
   },
@@ -25,5 +24,3 @@ const PostRepository = {
     return privateContent.getEntry(id);
   },
 };
-
-export default PostRepository;
