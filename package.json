@@ -27,8 +27,7 @@
     "push": "modyo-cli push",
     "build-and-push": "vue-cli-service build && modyo-cli push",
     "modyo-serve": "vue-cli-service modyo-serve",
-    "validate-branch-name": "validate-branch-name",
-    "postinstall": "husky install"
+    "validate-branch-name": "validate-branch-name"
   },
   "dependencies": {
     "@modyo/sdk": "^1.1.0",
