@@ -1,7 +1,6 @@
 <template>
   <div
     id="app"
-    class="slkdm"
   >
     <div class="pt-5">
       <div class="container">
@@ -120,10 +119,12 @@
     >
       <div class="container">
         <div class="mt-2 pt-2 border-top d-flex">
-          <span>{{ siteName }} <span
-            role="img"
-            aria-label="copy Rights"
-          >©</span>Modyo {{ year }}</span>
+          <span>
+            {{ siteName }}
+            <span
+              role="img"
+              aria-label="copy Rights"
+            >©</span>Modyo {{ year }}</span>
           <span class="ml-auto">Made with <font-awesome-icon
             :icon="['fas', 'heart']"
             color="red"
