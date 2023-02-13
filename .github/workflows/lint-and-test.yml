@@ -23,32 +23,20 @@ jobs:
           cache: npm
           registry-url: 'https://npm.pkg.github.com'
           scope: '@modyo'
-      - name: Get npm cache directory
-        id: npm-cache-dir
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
       - uses: actions/cache@v3
-        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+        id: npm-cache
+        name: Cache Node_modules for parallels executions
         with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install packages
         run: npm ci
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         env:
-          # And add the additional registry token here:
-          # FORTAWESOME_TOKEN: ${{secrets.FORTAWESOME_TOKEN}}
           NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Cache Node_modules for parallels executions
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-modules
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ./node_modules
-          key: ${{ github.sha }}-node-modules
   lint-js:
     name: Linter Javascript Files
     runs-on: ubuntu-latest
@@ -61,25 +49,22 @@ jobs:
         with:
           node-version: '16'
           cache: npm
-      - name: Get npm cache directory
-        id: npm-cache-dir
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
       - uses: actions/cache@v3
-        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+        id: npm-cache
+        name: Cache Node_modules for parallels executions
         with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Cache Node_modules for parallels executions
-        uses: actions/cache@v2
+      - name: Install packages
+        run: npm i -D
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         env:
-          cache-name: cache-modules
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ./node_modules
-          key: ${{ github.sha }}-node-modules
+          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Execute lint JS
+        run: npm run lint
       - name: Execute lint JS
         run: npm run lint
   lint-css:
@@ -94,25 +79,20 @@ jobs:
         with:
           node-version: '16'
           cache: npm
-      - name: Get npm cache directory
-        id: npm-cache-dir
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
       - uses: actions/cache@v3
-        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+        id: npm-cache
+        name: Cache Node_modules for parallels executions
         with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Cache Node_modules for parallels executions
-        uses: actions/cache@v2
+      - name: Install packages
+        run: npm i -D
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         env:
-          cache-name: cache-modules
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ./node_modules
-          key: ${{ github.sha }}-node-modules
+          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Execute stylelint
         run: npm run lint:style
   run-test-and-sonar-push:
@@ -129,40 +109,24 @@ jobs:
         with:
           node-version: '16'
           cache: npm
-      - name: Get npm cache directory
-        id: npm-cache-dir
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
       - uses: actions/cache@v3
-        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+        id: npm-cache
+        name: Cache Node_modules for parallels executions
         with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Cache Node_modules for parallels executions
-        uses: actions/cache@v2
+      - name: Install packages
+        run: npm i -D
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         env:
-          cache-name: cache-modules
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ./node_modules
-          key: ${{ github.sha }}-node-modules
+          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Execute Unit Test
         run: npm run test:coverage
-      - name: fix code coverage paths
-        working-directory: ./coverage
-        run: |
-          MODYO_WIDGET_NAME=$(echo $GITHUB_REPOSITORY| sed -e 's/modyo\///')
-          MODYO_WIDGET_PATH=$MODYO_WIDGET_NAME/$MODYO_WIDGET_NAME
-          REPLACE_REGEX="s/\/home\/runner\/work\/"$(echo $MODYO_WIDGET_PATH| sed -e 's/\//\\\//')"\///g"
-          echo $REPLACE_REGEX
-          cat sonar-cloud-reporter.xml
-          sed -i $REPLACE_REGEX lcov.info
-          sed -i $REPLACE_REGEX sonar-cloud-reporter.xml
-          cat sonar-cloud-reporter.xml
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # - name: SonarCloud Scan
+      #   uses: SonarSource/sonarcloud-github-action@master
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
