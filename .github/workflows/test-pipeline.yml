@@ -10,5 +10,4 @@ jobs:
       modyo-account-url: ${{secrets.BASE_URL}}
       modyo-token: ${{secrets.TOKEN}}
       modyo-site-id: ${{secrets.SITE_ID_CERTIFICATION}}
-    secrets: inherit
 
