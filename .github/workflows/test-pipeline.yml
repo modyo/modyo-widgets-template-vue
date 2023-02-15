@@ -4,10 +4,8 @@ on:
     branches:
       - test/centralized-pipeline
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: modyo/mifel-widgets-accounts-id/.github/workflows/deploy-widget-to-modyo.yml@develop
+  call-modyo-workflow:
+    uses: modyo/mifel-widgets-accounts-id/.github/workflows/deploy-widget-to-modyo.yml@develop
       with:
         modyo-account-url: ${{secrets.BASE_URL}}
         modyo-token: ${{secrets.TOKEN}}
