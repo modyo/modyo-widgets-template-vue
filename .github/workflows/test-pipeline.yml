@@ -5,7 +5,7 @@ on:
       - test/centralized-pipeline
 jobs:
   call-modyo-workflow:
-    uses: modyo/mifel-widgets-accounts-id/.github/workflows/deploy-widget-to-modyo.yml@develop
+    uses: modyo/mifel-widgets-accounts-td/.github/workflows/deploy-widget-to-modyo.yml@develop
     with:
       modyo-account-url: ${{secrets.BASE_URL}}
       modyo-token: ${{secrets.TOKEN}}
