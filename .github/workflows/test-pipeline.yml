@@ -4,10 +4,11 @@ on:
     branches:
       - test/centralized-pipeline
 jobs:
-#test
   call-modyo-workflow:
-    uses: modyo/mifel-widgets-accounts-td/.github/workflows/deploy-widget-to-modyo.yml@develop
+    uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
     with:
       modyo-account-url: ${{secrets.BASE_URL}}
       modyo-token: ${{secrets.TOKEN}}
       modyo-site-id: ${{secrets.SITE_ID_CERTIFICATION}}
+    secrets: inherit
+
