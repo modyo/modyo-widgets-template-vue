@@ -4,6 +4,7 @@ on:
     branches:
       - test/centralized-pipeline
 jobs:
+#test
   call-modyo-workflow:
     uses: modyo/mifel-widgets-accounts-td/.github/workflows/deploy-widget-to-modyo.yml@develop
     with:
