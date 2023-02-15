@@ -8,7 +8,8 @@ modyo-cli get modyo-widgets-template-vue "WIDGET_NAME"
 
 ## Widget Name
 
-​Layout "**Layout Name**" in the Modyo Platform.
+​
+Layout "**Layout Name**" in the Modyo Platform.
 Widget name is "**Widget Name**".
 
 ## Table of Contents
