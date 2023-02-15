@@ -22,6 +22,7 @@ jobs:
     - name: build widget
       run: npm run build
   call-modyo-workflow:
+    needs: build-widget
     uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
     #test secrets in reusable wf
     secrets:
