@@ -4,6 +4,23 @@ on:
     branches:
       - test/centralized-pipeline
 jobs:
+  build-widget:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: setup node.js v16
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        registry-url: https://npm.pkg.github.com/
+        cache: npm
+    - name: install dependencies
+      run: npm ci
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
+    - name: build widget
+      run: npm run build
   call-modyo-workflow:
     uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
     #test secrets in reusable wf
