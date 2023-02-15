@@ -6,8 +6,8 @@ on:
 jobs:
   call-modyo-workflow:
     uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
-    with:
-      modyo-account-url: ${{secrets.BASE_URL}}
-      modyo-token: ${{secrets.TOKEN}}
-      modyo-site-id: ${{secrets.SITE_ID_CERTIFICATION}}
+    secrets:
+      modyo-account-url: ${{ secrets.BASE_URL }}
+      modyo-token: ${{ secrets.TOKEN }}
+      modyo-site-id: ${{ secrets.SITE_ID_CERTIFICATION }}
 
