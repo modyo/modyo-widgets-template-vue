@@ -4,7 +4,13 @@ on:
     branches:
       - test/centralized-pipeline
 jobs:
+  build-dist-artifact:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
   push-to-modyo:
+    needs: build-dist-artifact
     uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
     with:
       environment: develop
