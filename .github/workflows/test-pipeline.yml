@@ -25,7 +25,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: my-widget
-        path: dist/ # or path/to/artifact
+        path: dist/ # or path to index folder
         if-no-files-found: error
         retention-days: 1
   push-to-modyo:
