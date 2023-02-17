@@ -27,7 +27,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
     - name: build widget
       run: npm run build
-  call-modyo-workflow:
+  push-to-modyo:
+    environment: develop
     needs: build-widget
     uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
     #test secrets in reusable wf
