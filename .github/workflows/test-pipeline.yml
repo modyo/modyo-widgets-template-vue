@@ -32,7 +32,8 @@ jobs:
     uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
     #test secrets in reusable wf
     secrets:
-      modyo-account-url: ${{ secrets.BASE_URL }}
+      environment: develop
+      # modyo-account-url: ${{ secrets.BASE_URL }}
       modyo-token: ${{ secrets.TOKEN }}
-      modyo-site-id: ${{ secrets.SITE_ID_CERTIFICATION }}
+      # modyo-site-id: ${{ secrets.SITE_ID_CERTIFICATION }}
 
