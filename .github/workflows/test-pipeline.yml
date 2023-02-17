@@ -15,6 +15,11 @@ jobs:
         node-version: 16.x
         registry-url: https://npm.pkg.github.com/
         cache: npm
+    - name: install dependencies
+      run: npm ci
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
     - name: build widget
       run: npm run build
 
