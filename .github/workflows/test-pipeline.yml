@@ -9,7 +9,7 @@ jobs:
     with:
       environment: develop
       artifact-name: test
-    #test variables in reusable wf
+    #test variables in test wf
     secrets:
       # modyo-account-url: ${{ secrets.BASE_URL}}
       modyo-token: ${{ secrets.TOKEN }}
