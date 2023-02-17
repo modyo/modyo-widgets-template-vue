@@ -19,7 +19,7 @@ jobs:
       run: npm run build
 
   push-to-modyo:
-    needs: build-dist-artifact
+    needs: build-widget
     uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
     with:
       environment: develop
