@@ -5,7 +5,6 @@ on:
       - test/centralized-pipeline
 jobs:
   push-to-modyo:
-    needs: build-widget
     uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
     with:
       environment: develop
@@ -13,37 +12,37 @@ jobs:
     secrets:
       # modyo-account-url: ${{ secrets.BASE_URL}}
       modyo-token: ${{ secrets.TOKEN }}
-  build-widget:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Cache Build Dir
-      id: build-dir
-      uses: actions/cache@v3
-      with:
-        path: dist
-        key: ${{ github.sha }}-dist
-    - name: setup node.js v16
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16.x
-        registry-url: https://npm.pkg.github.com/
-        cache: npm
-    - name: install dependencies
-      run: npm ci
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
-    - name: build widget
-      run: npm run build
-  push-to-modyo:
-    needs: build-widget
-    uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
-    with:
-      environment: develop
-    #test secrets in reusable wf
-    secrets:
-      # modyo-account-url: ${{ secrets.BASE_URL}}
-      modyo-token: ${{ secrets.TOKEN }}
-      # modyo-site-id: ${{ secrets.SITE_ID_CERTIFICATION }}
+  # build-widget:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Cache Build Dir
+  #     id: build-dir
+  #     uses: actions/cache@v3
+  #     with:
+  #       path: dist
+  #       key: ${{ github.sha }}-dist
+  #   - name: setup node.js v16
+  #     uses: actions/setup-node@v3
+  #     with:
+  #       node-version: 16.x
+  #       registry-url: https://npm.pkg.github.com/
+  #       cache: npm
+  #   - name: install dependencies
+  #     run: npm ci
+  #     env:
+  #       NODE_AUTH_TOKEN: ${{ secrets.TOKEN_REG }}
+  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
+  #   - name: build widget
+  #     run: npm run build
+  # push-to-modyo:
+  #   needs: build-widget
+  #   uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
+  #   with:
+  #     environment: develop
+  #   #test secrets in reusable wf
+  #   secrets:
+  #     # modyo-account-url: ${{ secrets.BASE_URL}}
+  #     modyo-token: ${{ secrets.TOKEN }}
+  #     # modyo-site-id: ${{ secrets.SITE_ID_CERTIFICATION }}
 
