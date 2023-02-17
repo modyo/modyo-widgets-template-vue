@@ -30,9 +30,10 @@ jobs:
   push-to-modyo:
     needs: build-widget
     uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
+    with:
+      environment: develop
     #test secrets in reusable wf
     secrets:
-      environment: develop
       # modyo-account-url: ${{ secrets.BASE_URL }}
       modyo-token: ${{ secrets.TOKEN }}
       # modyo-site-id: ${{ secrets.SITE_ID_CERTIFICATION }}
