@@ -7,7 +7,7 @@ jobs:
   build-widget:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    # - uses: actions/checkout@v3
     # - name: Cache Build Dir
     #   id: build-dir
     #   uses: actions/cache@v3
