@@ -26,7 +26,8 @@ jobs:
       with:
         name: my-widget
         path: dist/ # or path/to/artifact
-
+        if-no-files-found: error
+        retention-days: 1
   push-to-modyo:
     needs: build-widget
     uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
