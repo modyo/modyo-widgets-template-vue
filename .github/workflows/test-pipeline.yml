@@ -34,7 +34,7 @@ jobs:
       environment: develop
     #test secrets in reusable wf
     secrets:
-      # modyo-account-url: ${{ secrets.BASE_URL }}
+      # modyo-account-url: ${{ secrets.BASE_URL}}
       modyo-token: ${{ secrets.TOKEN }}
       # modyo-site-id: ${{ secrets.SITE_ID_CERTIFICATION }}
 
