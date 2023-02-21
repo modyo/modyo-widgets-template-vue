@@ -9,7 +9,7 @@ jobs:
     uses: modyo/modyo-widgets-template-vue/.github/workflows/build-vue-widget.yml@test/centralized-pipeline
     with:
       artifact-name: my-widget
-      legacy-peer-deps: false
+      legacy-peer-deps: true
       build-path: dist/
   # push-to-modyo: 
   #   needs: build-widget 
