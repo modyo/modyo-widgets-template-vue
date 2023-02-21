@@ -29,15 +29,27 @@ jobs:
       with:
         path: ./node_modules
         key: ${{ hashFiles('**/package-lock.json') }}-node-modules
-    - name: install dependencies
+    - name: install dependencies full
       if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' && !inputs.legacy-peer-deps }}
       run: npm ci
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.github-token }}
+        GITHUB_TOKEN: ${{ inputs.github-token }} # This gets generated automatically
+    - name: install dependencies
+      if: ${{ !inputs.legacy-peer-deps }}
+      run: npm i
       env:
         NODE_AUTH_TOKEN: ${{ inputs.github-token }}
         GITHUB_TOKEN: ${{ inputs.github-token }} # This gets generated automatically
     - name: install dependencies with legacy-peer-deps-flag
       run: npm ci --legacy-peer-deps
       if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' && inputs.legacy-peer-deps }}
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.github-token }}
+        GITHUB_TOKEN: ${{ inputs.github-token }} # This gets generated automatically
+    - name: install dependencies with legacy-peer-deps-flag
+      run: npm i --legacy-peer-deps
+      if: ${{ inputs.legacy-peer-deps }}
       env:
         NODE_AUTH_TOKEN: ${{ inputs.github-token }}
         GITHUB_TOKEN: ${{ inputs.github-token }} # This gets generated automatically
