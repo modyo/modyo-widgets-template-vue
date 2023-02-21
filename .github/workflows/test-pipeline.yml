@@ -8,13 +8,13 @@ jobs:
   install-dependencies:
     uses: modyo/modyo-widgets-template-vue/.github/workflows/install-dependencies.yml@test/centralized-pipeline
     with:
-      legacy-peer-deps: true
+      legacy-peer-deps: false
   build-widget:
     needs: install-dependencies
     uses: modyo/modyo-widgets-template-vue/.github/workflows/build-vue-widget.yml@test/centralized-pipeline
     with:
       artifact-name: my-widget
-      legacy-peer-deps: true
+      legacy-peer-deps: false
       build-path: dist/
   push-to-modyo: 
     needs: build-widget 
