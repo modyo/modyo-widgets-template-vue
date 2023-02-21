@@ -12,7 +12,7 @@ jobs:
       legacy-peer-deps: false
       build-path: dist/
   # push-to-modyo:
-  #   needs: build-widget
+  #   needs: build-widget 
   #   uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
   #   with:
   #     environment: develop # Set env vars in dev env
