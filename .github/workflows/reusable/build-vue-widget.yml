@@ -1,0 +1,45 @@
+name: Build Widget and Generate artifact Vue
+on:
+  workflow_call:
+    inputs:
+      artifact-name:
+        required: true
+        type: string
+      legacy-peer-deps:
+        required: false
+        type: boolean
+      build-path:
+        required: false
+        type: boolean
+jobs:
+  build-widget:
+    name: Build Widget
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: setup node.js v16
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        registry-url: https://npm.pkg.github.com/
+        cache: npm
+    - name: install dependencies
+      run: npm ci
+      if: ${{ !inputs.legacy-peer-deps }}
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
+    - name: install dependencies with legacy-peer-deps-flag
+      run: npm ci --legacy-peer-deps
+      if: ${{ inputs.legacy-peer-deps }}
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
+    - name: build widget
+      run: npm run build
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ${{artifact-name}}
+        path: dist/ # or path to index folder
+        if-no-files-found: error
+        retention-days: 1
