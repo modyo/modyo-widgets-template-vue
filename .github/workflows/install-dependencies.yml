@@ -22,6 +22,7 @@ jobs:
         node-version: 16.x
         registry-url: 'https://registry.npmjs.org'
     - name: Cache Node_modules for package-lock
+      id: cache-node-modules
       uses: actions/cache@v3
       env:
         cache-name: cache-modules
@@ -29,14 +30,14 @@ jobs:
         path: ./node_modules
         key: ${{ hashFiles('**/package-lock.json') }}-node-modules
     - name: install dependencies
+      if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' && !inputs.legacy-peer-deps }}
       run: npm ci
-      if: ${{ !inputs.legacy-peer-deps }}
       env:
         NODE_AUTH_TOKEN: ${{ inputs.github-token }}
         GITHUB_TOKEN: ${{ inputs.github-token }} # This gets generated automatically
     - name: install dependencies with legacy-peer-deps-flag
       run: npm ci --legacy-peer-deps
-      if: ${{ inputs.legacy-peer-deps }}
+      if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' && inputs.legacy-peer-deps }}
       env:
         NODE_AUTH_TOKEN: ${{ inputs.github-token }}
         GITHUB_TOKEN: ${{ inputs.github-token }} # This gets generated automatically
