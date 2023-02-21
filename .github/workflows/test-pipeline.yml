@@ -11,8 +11,6 @@ jobs:
       artifact-name: my-widget
       legacy-peer-deps: false
       build-path: dist/
-    secrets:
-      modyo-token: ${{ secrets.TOKEN }}
   # push-to-modyo:
   #   needs: build-widget
   #   uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
