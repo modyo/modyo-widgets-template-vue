@@ -39,7 +39,7 @@ jobs:
       run: npm run build
     - uses: actions/upload-artifact@v3
       with:
-        name: ${{artifact-name}}
-        path: dist/ # or path to index folder
+        name: ${{inputs.artifact-name}}
+        path: ${{inputs.build-path}} # or path to index folder
         if-no-files-found: error
         retention-days: 1
