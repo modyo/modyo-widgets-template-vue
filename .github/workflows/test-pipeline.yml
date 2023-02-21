@@ -11,12 +11,12 @@ jobs:
       artifact-name: my-widget
       legacy-peer-deps: true
       build-path: dist/
-  # push-to-modyo: 
-  #   needs: build-widget 
-  #   uses: Giorgiosaud/reused-workflows/.github/workflows/deploy-widget-to-modyo.yml@main
-  #   with:
-  #     environment: develop # Set env vars in dev env
-  #     artifact-name: my-widget
-  #   secrets:
-  #     modyo-token: ${{ secrets.TOKEN }}
+  push-to-modyo: 
+    needs: build-widget 
+    uses: modyo/modyo-widgets-template-vue/.github/workflows/push-to-modyo.yml@test/centralized-pipeline
+    with:
+      environment: develop # Set env vars in dev env
+      artifact-name: my-widget
+    secrets:
+      modyo-token: ${{ secrets.TOKEN }}
  
