@@ -22,7 +22,7 @@ jobs:
         node-version: 16.x
         registry-url: 'https://registry.npmjs.org'
     - name: Cache Node_modules for package-lock
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       env:
         cache-name: cache-modules
       with:
