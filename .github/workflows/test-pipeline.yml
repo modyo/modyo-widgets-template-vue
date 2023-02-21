@@ -6,7 +6,6 @@ on:
       - test/centralized-pipeline
 jobs:
   push-to-modyo:
-    needs: build-widget
     uses: modyo/modyo-widgets-template-vue/.github/workflows/build-vue-widget.yml@test/centralized-pipeline
     with:
       artifact-name: my-widget
