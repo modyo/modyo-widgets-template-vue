@@ -31,13 +31,13 @@ jobs:
         path: ./node_modules
         key: ${{ hashFiles('**/package-lock.json') }}-node-modules
     - name: install dependencies
-      run: npm ci
+      run: npm i
       if: ${{ !inputs.legacy-peer-deps }}
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This gets generated automatically
     - name: install dependencies with legacy-peer-deps-flag
-      run: npm ci --legacy-peer-deps
+      run: npm i --legacy-peer-deps
       if: ${{ inputs.legacy-peer-deps }}
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
