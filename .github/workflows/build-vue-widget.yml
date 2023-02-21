@@ -10,7 +10,7 @@ on:
         type: boolean
       build-path:
         required: false
-        type: boolean
+        type: string
 jobs:
   build-widget:
     name: Build Widget
