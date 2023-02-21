@@ -23,6 +23,13 @@ jobs:
         node-version: 16.x
         registry-url: https://npm.pkg.github.com/
         cache: npm
+    - name: Cache Node_modules for package-lock
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-modules
+      with:
+        path: ./node_modules
+        key: ${{ hashFiles('**/package-lock.json') }}-node-modules
     - name: install dependencies
       run: npm ci
       if: ${{ !inputs.legacy-peer-deps }}

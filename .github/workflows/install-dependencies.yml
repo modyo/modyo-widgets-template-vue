@@ -1,0 +1,42 @@
+name: Install Npm Dependencies
+on:
+  workflow_call:
+    inputs:
+      legacy-peer-deps:
+        required: false
+        type: boolean
+      github-token:
+        type: string
+        description: 'GITHUB_TOKEN or a scoped Personal Access Token (PAT)'
+        required: false
+        default: ${{ github.token }}
+jobs:
+  install-dependencies:
+    name: Install Dependencies
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: setup node.js v16
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        registry-url: 'https://registry.npmjs.org'
+    - name: Cache Node_modules for package-lock
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-modules
+        with:
+          path: ./node_modules
+          key: ${{ hashFiles('**/package-lock.json') }}-node-modules
+    - name: install dependencies
+      run: npm ci
+      if: ${{ !inputs.legacy-peer-deps }}
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.github-token }}
+        GITHUB_TOKEN: ${{ inputs.github-token }} # This gets generated automatically
+    - name: install dependencies with legacy-peer-deps-flag
+      run: npm ci --legacy-peer-deps
+      if: ${{ inputs.legacy-peer-deps }}
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.github-token }}
+        GITHUB_TOKEN: ${{ inputs.github-token }} # This gets generated automatically
