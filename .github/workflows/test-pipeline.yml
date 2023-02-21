@@ -1,5 +1,6 @@
 name: Publish to test
 on:
+  workflow_dispatch:
   push:
     branches:
       - test/centralized-pipeline
