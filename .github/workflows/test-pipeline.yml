@@ -6,19 +6,19 @@ on:
       - test/centralized-pipeline
 jobs:
   install-dependencies:
-    uses: modyo/modyo-widgets-template-vue/.github/workflows/install-dependencies.yml@test/centralized-pipeline
+    uses: modyo/modyo-widgets-template-vue/.github/workflows/reusable-install-dependencies.yml@test/centralized-pipeline
     with:
       legacy-peer-deps: false
   build-widget:
     needs: install-dependencies
-    uses: modyo/modyo-widgets-template-vue/.github/workflows/build-vue-widget.yml@test/centralized-pipeline
+    uses: modyo/modyo-widgets-template-vue/.github/workflows/reusable-build-vue-widget.yml@test/centralized-pipeline
     with:
       artifact-name: my-widget
       legacy-peer-deps: false
       build-path: dist/
   push-to-modyo: 
     needs: build-widget 
-    uses: modyo/modyo-widgets-template-vue/.github/workflows/push-to-modyo.yml@test/centralized-pipeline
+    uses: modyo/modyo-widgets-template-vue/.github/workflows/reusable-push-to-modyo.yml@test/centralized-pipeline
     with:
       environment: develop # Set env vars in dev env
       artifact-name: my-widget
